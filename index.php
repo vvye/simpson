@@ -1,52 +1,74 @@
 <?php
 
 	/*
-		simpson, by vvye
+		simpson
+		2015, by vvye
 	*/
 
-	require_once('inc/functions/static_pages.php');
-
-	include('header.php');
+	require_once 'inc/functions/pages.php';
+	require_once 'inc/functions/static_pages.php';
 
 ?>
 
-	<div class="pure-g">
-		<div class="pure-u-1-2">
-			<div class="l-box">
-				<h1 class="title">simpson</h1>
+<!DOCTYPE html>
+<html lang="de">
 
-				<p>a simple social network</p>
+	<head>
+		<meta charset="UTF-8">
+		<title>simpson</title>
 
-				<p>Hello world! Insert some kind of message here, such as "welcome to my awesome site", "simpson
-					is the leading provider of social networks worldwide", and other blatant lies.</p>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+		<![endif]-->
+		<!--[if gt IE 8]><!-->
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+		<!--<![endif]-->
 
-				<form class="pure-form" action="">
-					<input type="email" name="email" placeholder="e-mail" />
-					<input type="password" name="password" placeholder="password" />
-					<input type="submit" class="pure-button" name="login-submit"
-					       value="login" />
-				</form>
-			</div>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+	</head>
+
+	<body>
+
+		<div class="pure-menu pure-menu-horizontal">
+			<ul class="pure-menu-list">
+				<li class="pure-menu-item"><a href="index.php" class="pure-menu-link">home</a></li>
+				<li class="pure-menu-item"><a href="?p=profile" class="pure-menu-link">my profile</a></li>
+				<?php
+					$menuItems = getMenuItems();
+					foreach ($menuItems as $id => $caption)
+					{
+						echo '<li class="pure-menu-item"><a href="?p=static&id=' . $id . '" class="pure-menu-link">'
+							. $caption . '</a></li>';
+					}
+				?>
+			</ul>
 		</div>
-		<div class="pure-u-1-2">
-			<div class="l-box text-center">
-				<div class="box">
-					<h2>join the fun!</h2>
 
-					<form class="pure-form pure-form-stacked register-form" action="">
-						<div class="pure-g">
-							<div class="pure-u-1-2"><input type="text" name="first-name" placeholder="first name"></div>
-							<div class="pure-u-1-2"><input type="text" name="last-name" placeholder="last name"></div>
-						</div>
-						<input type="email" placeholder="e-mail">
-						<input type="password" placeholder="choose a password">
-						<input type="submit" class="pure-button pure-button-primary" value="join" />
-					</form>
-				</div>
-			</div>
+		<div class="container">
+
+			<?php
+
+				$p = isset($_GET['p']) ? sanitize($_GET['p']) : 'home';
+
+				if (file_exists($page = 'inc/content/' . $p . '.php'))
+				{
+					include $page;
+				}
+				else
+				{
+					echo 'that page doesn\'t exist.';
+				}
+
+			?>
+
 		</div>
-	</div>
 
-<?php
+		<footer>
+			<p>powered by <em>simpson</em>.</p>
+		</footer>
 
-	include('footer.php');
+	</body>
+
+</html>
