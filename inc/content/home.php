@@ -3,12 +3,12 @@
 		<div class="l-box">
 			<h1 class="title">simpson</h1>
 
-			<p>a simple social network</p>
+			<p>a <em>simp</em>le <em>so</em>cial <em>n</em>etwork</p>
 
 			<p>Hello world! Insert some kind of message here, such as "welcome to my awesome site", "simpson
 				is the leading provider of social networks worldwide", and other blatant lies.</p>
 
-			<form class="pure-form" method="post" action="?p=login">
+			<form class="pure-form login-form" method="post" action="?p=login">
 				<input type="email" name="email" placeholder="email"/>
 				<input type="password" name="password" placeholder="password"/>
 				<input type="submit" class="pure-button" name="login-submit"

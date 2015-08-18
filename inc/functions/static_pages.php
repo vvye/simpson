@@ -1,6 +1,6 @@
 <?php
 
-	function getMenuItems()
+	function getMenuItemsForStaticPages()
 	{
 		$filenames = glob('static/*.md');
 		if (empty($filenames))
@@ -24,7 +24,7 @@
 	}
 
 
-	function getPageContent($id)
+	function getStaticPageContent($id)
 	{
 		$filenames = glob('static/' . $id . '_*.md');
 

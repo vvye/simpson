@@ -8,5 +8,5 @@
 		$id = preg_replace('/[^0-9]/', '', $_GET['id']);
 
 		$parsedown = new Parsedown();
-		echo $parsedown->text(getPageContent($id));
+		echo $parsedown->text(getStaticPageContent($id));
 	}

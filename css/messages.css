@@ -1,0 +1,23 @@
+/*
+    messages
+*/
+
+.thread {
+    width: 50%;
+    margin: auto;
+    border: 1px solid #DDD;
+    background-color: #FAFAFA;
+    padding: 1rem;
+}
+
+.thread h2 {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.thread h2 + span {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    color: #555;
+}

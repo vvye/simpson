@@ -8,6 +8,8 @@
 	require_once 'inc/functions/pages.php';
 	require_once 'inc/functions/static_pages.php';
 
+	$currentPageName = isset($_GET['p']) ? sanitize($_GET['p']) : 'home';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,22 +27,33 @@
 	<!--<![endif]-->
 
 	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="css/messages.css"/>
 </head>
 
 <body>
 
 <div class="pure-menu pure-menu-horizontal">
 	<ul class="pure-menu-list">
-		<li class="pure-menu-item"><a href="index.php" class="pure-menu-link">home</a></li>
-		<li class="pure-menu-item"><a href="?p=profile" class="pure-menu-link">my profile</a></li>
+
 		<?php
-			$menuItems = getMenuItems();
-			foreach ($menuItems as $id => $caption)
+
+			$defaultMenuItems = getDefaultMenuItems($currentPageName);
+			foreach ($defaultMenuItems as $pageName => $caption)
+			{
+				echo '<li class="pure-menu-item'
+					. (($pageName === $currentPageName) ? ' pure-menu-selected' : '')
+					. '"><a href="?p=' . $pageName . '" class="pure-menu-link">' . $caption . '</a></li>';
+			}
+
+			$staticPageMenuItems = getMenuItemsForStaticPages();
+			foreach ($staticPageMenuItems as $id => $caption)
 			{
 				echo '<li class="pure-menu-item"><a href="?p=static&id=' . $id . '" class="pure-menu-link">'
 					. $caption . '</a></li>';
 			}
+
 		?>
+
 	</ul>
 </div>
 
@@ -48,9 +61,7 @@
 
 	<?php
 
-		$p = isset($_GET['p']) ? sanitize($_GET['p']) : 'home';
-
-		if (file_exists($page = 'inc/content/' . $p . '.php'))
+		if (file_exists($page = 'inc/content/' . $currentPageName . '.php'))
 		{
 			include $page;
 		}
