@@ -20,7 +20,6 @@
 	<body>
 
 		<div class="pure-menu pure-menu-horizontal">
-			<a href="#" class="pure-menu-heading pure-menu-link">simpson</a>
 			<ul class="pure-menu-list">
 				<li class="pure-menu-item"><a href="index.php" class="pure-menu-link">Home</a></li>
 				<li class="pure-menu-item"><a href="profile.php" class="pure-menu-link">My profile</a></li>

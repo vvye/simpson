@@ -10,6 +10,10 @@
     color: #BBB;
 }
 
+.pure-menu-link:hover {
+    color: inherit;
+}
+
 .container {
     width: 80%;
     margin: 0 auto;
