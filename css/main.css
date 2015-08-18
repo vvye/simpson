@@ -46,7 +46,7 @@
     padding: 1rem;
 }
 
-.box {
+.panel {
     border: 1px solid #DDD;
     background-color: #FAFAFA;
     padding: 1rem;
@@ -54,11 +54,7 @@
 
 .register-form {
     width: 60%;
-    margin: auto;
-}
-
-.register-form input {
-    width: 100%;
+    margin: 0 auto 3rem;
 }
 
 footer {
