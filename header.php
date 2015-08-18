@@ -27,7 +27,7 @@
 					$menuItems = getMenuItems();
 					foreach ($menuItems as $id => $caption)
 					{
-						echo '<li class="pure-menu-item"><a href="page.php?id=' . $id . '" class="pure-menu-link">'
+						echo '<li class="pure-menu-item"><a href="static.php?id=' . $id . '" class="pure-menu-link">'
 							. $caption . '</a></li>';
 					}
 				?>

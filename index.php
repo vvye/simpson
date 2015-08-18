@@ -4,7 +4,7 @@
 		simpson, by vvye
 	*/
 
-	require_once('inc/custom_pages.php');
+	require_once('inc/functions/static_pages.php');
 
 	include('header.php');
 

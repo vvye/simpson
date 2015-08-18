@@ -10,7 +10,7 @@
     color: #BBB;
 }
 
-.pure-menu-link:hover {
+.pure-menu-link:hover, .pure-menu-selected .pure-menu-link {
     color: inherit;
 }
 
