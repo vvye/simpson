@@ -1,0 +1,67 @@
+/*
+    stuff
+*/
+
+.pure-menu {
+    background-color: #222;
+}
+
+.pure-menu-link {
+    color: #BBB;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.text-center, .text-center form {
+    text-align: center;
+}
+
+.text-center input {
+    margin: auto;
+}
+
+.title {
+    margin: 0;
+    font-size: 5rem;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+}
+
+.title + p {
+    position: relative;
+    top: -2rem;
+    left: 9.25rem;
+    color: #666;
+}
+
+.l-box {
+    padding: 1rem;
+}
+
+.box {
+    border: 1px solid #DDD;
+    background-color: #FAFAFA;
+    padding: 1rem;
+}
+
+.register-form {
+    width: 60%;
+    margin: auto;
+}
+
+.register-form input {
+    width: 100%;
+}
+
+footer {
+    margin: 2rem 1rem 0;
+    border-top: 1px solid #DDD;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+}
