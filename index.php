@@ -11,73 +11,73 @@
 	$currentPageName = isset($_GET['p']) ? sanitize($_GET['p']) : 'home';
 
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<title>simpson</title>
+	<head>
+		<meta charset="utf-8">
+		<title>simpson</title>
 
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	<!--[if lte IE 8]>
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
-	<![endif]-->
-	<!--[if gt IE 8]><!-->
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-	<!--<![endif]-->
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+		<![endif]-->
+		<!--[if gt IE 8]><!-->
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+		<!--<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="css/main.css"/>
-	<link rel="stylesheet" type="text/css" href="css/messages.css"/>
-</head>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/messages.css"/>
+	</head>
 
-<body>
+	<body>
 
-<div class="pure-menu pure-menu-horizontal">
-	<ul class="pure-menu-list">
+		<div class="pure-menu pure-menu-horizontal">
+			<ul class="pure-menu-list">
 
-		<?php
+				<?php
 
-			$defaultMenuItems = getDefaultMenuItems($currentPageName);
-			foreach ($defaultMenuItems as $pageName => $caption)
-			{
-				echo '<li class="pure-menu-item'
-					. (($pageName === $currentPageName) ? ' pure-menu-selected' : '')
-					. '"><a href="?p=' . $pageName . '" class="pure-menu-link">' . $caption . '</a></li>';
-			}
+					$defaultMenuItems = getDefaultMenuItems($currentPageName);
+					foreach ($defaultMenuItems as $pageName => $caption)
+					{
+						echo '<li class="pure-menu-item'
+							. (($pageName === $currentPageName) ? ' pure-menu-selected' : '')
+							. '"><a href="?p=' . $pageName . '" class="pure-menu-link">' . $caption . '</a></li>';
+					}
 
-			$staticPageMenuItems = getMenuItemsForStaticPages();
-			foreach ($staticPageMenuItems as $id => $caption)
-			{
-				echo '<li class="pure-menu-item"><a href="?p=static&id=' . $id . '" class="pure-menu-link">'
-					. $caption . '</a></li>';
-			}
+					$staticPageMenuItems = getMenuItemsForStaticPages();
+					foreach ($staticPageMenuItems as $id => $caption)
+					{
+						echo '<li class="pure-menu-item"><a href="?p=static&id=' . $id . '" class="pure-menu-link">'
+							. $caption . '</a></li>';
+					}
 
-		?>
+				?>
 
-	</ul>
-</div>
+			</ul>
+		</div>
 
-<div class="container">
+		<div class="container">
 
-	<?php
+			<?php
 
-		if (file_exists($page = 'inc/content/' . $currentPageName . '.php'))
-		{
-			include $page;
-		}
-		else
-		{
-			echo 'that page doesn\'t exist.';
-		}
+				if (file_exists($page = 'inc/content/' . $currentPageName . '.php'))
+				{
+					include $page;
+				}
+				else
+				{
+					echo 'that page doesn\'t exist.';
+				}
 
-	?>
+			?>
 
-</div>
+		</div>
 
-<footer>
-	<p>powered by <em>simpson</em>.</p>
-</footer>
+		<footer>
+			<p>powered by <em>simpson</em>.</p>
+		</footer>
 
-</body>
+	</body>
 
 </html>

@@ -6,7 +6,7 @@
 	}
 
 
-	function getDefaultMenuItems($currentPage)
+	function getDefaultMenuItems()
 	{
 		return [
 			'home'     => 'home',

@@ -12,7 +12,7 @@
 				<input type="email" name="email" placeholder="email"/>
 				<input type="password" name="password" placeholder="password"/>
 				<input type="submit" class="pure-button" name="login-submit"
-				       value="login"/>
+				       value="log in"/>
 			</form>
 		</div>
 	</div>
@@ -32,8 +32,8 @@
 						</div>
 						<input type="email" class="pure-u-1" name="email"
 						       placeholder="email (you'll use this to log in)">
-						<input type="password" class="pure-u-1" placeholder="choose a password">
-						<input type="submit" class="pure-button pure-button-primary pure-u-1" value="join"/>
+						<input type="password" class="pure-u-1" name="password" placeholder="choose a password">
+						<input type="submit" class="pure-button pure-button-primary pure-u-1" name="register-submit" value="join"/>
 					</div>
 				</form>
 			</div>
