@@ -37,7 +37,7 @@
 
 				<?php
 
-					$defaultMenuItems = getDefaultMenuItems($currentPageName);
+					$defaultMenuItems = getDefaultMenuItems();
 					foreach ($defaultMenuItems as $pageName => $caption)
 					{
 						echo '<li class="pure-menu-item'
