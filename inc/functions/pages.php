@@ -9,9 +9,29 @@
 	function getDefaultMenuItems()
 	{
 		return [
-			'home'     => 'home',
-			'messages' => 'messages',
-			'profile'  => 'my profile',
-			'admin'    => 'admin'
+			[
+				'pageName' => 'home',
+				'caption' => 'home'
+			],
+			[
+				'pageName' => 'messages',
+				'caption' => 'messages',
+				'condition' => (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
+			],
+			[
+				'pageName' => 'profile',
+				'caption' => 'my profile',
+				'condition' => (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
+			],
+			[
+				'pageName' => 'admin',
+				'caption' => 'admin',
+				'condition' => (isset($_SESSION['admin']) && $_SESSION['admin'] === true)
+			],
+			[
+				'pageName' => 'logout',
+				'caption' => 'log out',
+				'condition' => (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
+			]
 		];
 	}

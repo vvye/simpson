@@ -6,14 +6,9 @@
 	*/
 
 	require_once 'inc/functions/pages.php';
-	require_once 'inc/functions/static_pages.php';
-	require_once 'inc/functions/login.php';
+	require_once 'inc/functions/menu.php';
 
 	session_start();
-	if (!empty($_SESSION['username']) && ($_SESSION['loggedIn'] === 1))
-	{
-		loginWithSessionData();
-	}
 
 	$currentPageName = isset($_GET['p']) ? sanitize($_GET['p']) : 'home';
 
@@ -44,20 +39,7 @@
 
 				<?php
 
-					$defaultMenuItems = getDefaultMenuItems();
-					foreach ($defaultMenuItems as $pageName => $caption)
-					{
-						echo '<li class="pure-menu-item'
-							. (($pageName === $currentPageName) ? ' pure-menu-selected' : '')
-							. '"><a href="?p=' . $pageName . '" class="pure-menu-link">' . $caption . '</a></li>';
-					}
-
-					$staticPageMenuItems = getMenuItemsForStaticPages();
-					foreach ($staticPageMenuItems as $id => $caption)
-					{
-						echo '<li class="pure-menu-item"><a href="?p=static&id=' . $id . '" class="pure-menu-link">'
-							. $caption . '</a></li>';
-					}
+					renderMenu($currentPageName);
 
 				?>
 
