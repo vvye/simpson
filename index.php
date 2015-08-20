@@ -7,6 +7,13 @@
 
 	require_once 'inc/functions/pages.php';
 	require_once 'inc/functions/static_pages.php';
+	require_once 'inc/functions/login.php';
+
+	session_start();
+	if (!empty($_SESSION['username']) && ($_SESSION['loggedIn'] === 1))
+	{
+		loginWithSessionData();
+	}
 
 	$currentPageName = isset($_GET['p']) ? sanitize($_GET['p']) : 'home';
 

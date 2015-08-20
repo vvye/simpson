@@ -6,25 +6,38 @@
 	{
 		include 'inc/content/home.php';
 	}
+	else if (empty($_POST['email']) || empty($_POST['password']))
+	{
+		$loginErrorMessage = 'please fill in both fields.';
+	}
 	else
 	{
 		$database = getDatabase();
 
-		// TODO obviously
 		$result = $database->select('users', '*', [
-			'AND' => [
-				'email'    => $_POST['email'],
-				'password' => $_POST['password']
-			]
+			'email' => $_POST['email']
 		]);
 
 		if (empty($result) || count($result) !== 1)
 		{
-			echo 'login failed.';
+			$loginErrorMessage = 'login failed.';
 		}
 		else
 		{
-			echo 'you logged in as ' . $_POST['email'] . '.';
+			$passwordHash = $result[0]['password_hash'];
+
+			if (!password_verify($_POST['password'], $passwordHash))
+			{
+				$loginErrorMessage = 'login failed.';
+			}
+			else
+			{
+				$_SESSION['userId'] = $result[0]['id'];
+				$_SESSION['firstName'] = $result[0]['first_name'];
+				$_SESSION['lastName'] = $result[0]['last_name'];
+				$_SESSION['loggedIn'] = true;
+			}
 		}
 	}
+	include 'inc/content/home.php';
 
