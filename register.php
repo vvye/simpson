@@ -4,10 +4,6 @@
 
 	if (!isset($_POST['register-submit']))
 	{
-		include 'inc/content/home.php';
-	}
-	else
-	{
 		$firstName = trim($_POST['first-name']);
 		$lastName = trim($_POST['last-name']);
 		$email = trim($_POST['email']);
@@ -16,7 +12,6 @@
 		if ($firstName === '' || $lastName === '' || $email === '' || $password == '')
 		{
 			$registerErrorMessage = 'please fill in all fields.';
-			include 'inc/content/home.php';
 		}
 		else
 		{
@@ -29,7 +24,6 @@
 			if (!empty($result) && count($result) !== 0)
 			{
 				$registerErrorMessage = 'that email is already registered.';
-				include 'inc/content/home.php';
 			}
 			else
 			{
@@ -48,3 +42,6 @@
 			}
 		}
 	}
+
+	header('Location: index.php ' . (isset($registerErrorMessage)) ? '?registerErrorMessage=' . $registerErrorMessage : '');
+	die();

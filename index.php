@@ -5,12 +5,10 @@
 		2015, by vvye
 	*/
 
-	require_once 'inc/functions/pages.php';
 	require_once 'inc/functions/menu.php';
 
 	session_start();
-
-	$currentPageName = isset($_GET['p']) ? sanitize($_GET['p']) : 'home';
+	$_SESSION['currentPageName'] = isset($_GET['p']) ? sanitizePageName($_GET['p']) : 'home';
 
 ?>
 <!doctype html>
@@ -39,7 +37,7 @@
 
 				<?php
 
-					renderMenu($currentPageName);
+					renderMenu();
 
 				?>
 
@@ -50,7 +48,7 @@
 
 			<?php
 
-				if (file_exists($page = 'inc/content/' . $currentPageName . '.php'))
+				if (file_exists($page = 'inc/content/' . $_SESSION['currentPageName'] . '.php'))
 				{
 					include $page;
 				}

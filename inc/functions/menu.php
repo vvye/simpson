@@ -1,19 +1,40 @@
 <?php
 
-	require_once 'inc/functions/pages.php';
-	require_once 'inc/functions/static_pages.php';
-
-
-	function renderMenu($currentPageName)
+	function sanitizePageName($pageName)
 	{
-		renderDefaultMenuItems($currentPageName);
-		renderMenuItemsForStaticPages($currentPageName);
+		return preg_replace('/[^A-Za-z0-9 ]/', '', $pageName);
 	}
 
 
-	function renderDefaultMenuItems($currentPageName)
+	function getMenuItems()
 	{
-		$menuItems = getDefaultMenuItems();
+		return [
+			[
+				'pageName' => 'home',
+				'caption'  => 'home'
+			],
+			[
+				'pageName'  => 'messages',
+				'caption'   => 'messages',
+				'condition' => (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
+			],
+			[
+				'pageName'  => 'profile',
+				'caption'   => 'my profile',
+				'condition' => (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true)
+			],
+			[
+				'pageName'  => 'admin',
+				'caption'   => 'admin',
+				'condition' => (isset($_SESSION['admin']) && $_SESSION['admin'] === true)
+			]
+		];
+	}
+
+
+	function renderMenu()
+	{
+		$menuItems = getMenuItems();
 		foreach ($menuItems as $menuItem)
 		{
 			if (isset($menuItem['condition']) && !$menuItem['condition'])
@@ -21,28 +42,12 @@
 				continue;
 			}
 
-			$selected = ($menuItem['pageName'] === $currentPageName)
+			$selected = ($menuItem['pageName'] === $_SESSION['currentPageName'])
 				? ' pure-menu-selected'
 				: '';
 			echo '<li class="pure-menu-item' . $selected . '">'
 				. '<a href="?p=' . $menuItem['pageName'] . '" class="pure-menu-link">'
 				. $menuItem['caption']
-				. '</a></li>';
-		}
-	}
-
-
-	function renderMenuItemsForStaticPages($currentPageName)
-	{
-		$menuItems = getMenuItemsForStaticPages();
-		foreach ($menuItems as $id => $caption)
-		{
-			$selected = ($currentPageName === 'static' && isset($_GET['id']) && $id == $_GET['id'])
-				? ' pure-menu-selected'
-				: '';
-			echo '<li class="pure-menu-item' . $selected . '">'
-				. '<a href="?p=static&id=' . $id . '" class="pure-menu-link">'
-				. $caption
 				. '</a></li>';
 		}
 	}
