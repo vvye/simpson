@@ -27,7 +27,14 @@
 
 			<?php
 
-				renderRegisterForm();
+				if (isLoggedIn())
+				{
+					echo '<div class="panel"><h2>Hi ' . $_SESSION['firstName'] . '!</h2><p><em>insert actions/notices here</em></p><p><a href="session.php?logout">log out</a></p></div>';
+				}
+				else
+				{
+					renderRegisterForm();
+				}
 
 			?>
 
