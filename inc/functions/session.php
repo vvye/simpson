@@ -48,6 +48,11 @@
 					'email'         => $_POST['email'],
 					'password_hash' => $passwordHash
 				]);
+
+				mail($_POST['email'],
+					'welcome to simpson!',
+					'hey there, you decided to register for some reason! welcome and stuff!'
+				);
 			}
 		}
 	}

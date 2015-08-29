@@ -29,7 +29,10 @@
 
 				if (isLoggedIn())
 				{
-					echo '<div class="panel"><h2>Hi ' . $_SESSION['firstName'] . '!</h2><p><em>insert actions/notices here</em></p><p><a href="session.php?logout">log out</a></p></div>';
+					echo '<div class="panel">';
+					echo '<h2>Hi <a href="?p=profile&id=' . $_SESSION['userId'] . '">' . $_SESSION['firstName'] . '</a>!';
+					echo '</h2><p><em>insert actions/notices here</em></p><p><a href="session.php?logout">log out</a></p>';
+					echo '</div>';
 				}
 				else
 				{
