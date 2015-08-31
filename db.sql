@@ -1,5 +1,7 @@
 CREATE DATABASE simpson;
 
+USE simpson;
+
 CREATE TABLE users
 (
   id            INT PRIMARY KEY   NOT NULL AUTO_INCREMENT,
@@ -9,4 +11,3 @@ CREATE TABLE users
   password_hash VARCHAR(100)      NOT NULL,
   email_public  TINYINT DEFAULT 0 NOT NULL
 );
-
