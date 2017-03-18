@@ -1,9 +1,13 @@
+form {
+    margin: 2rem 0;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
     border: 1px solid #aaa;
     border-radius: 2px;
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem 0.8rem;
     font-family: 'Merriweather Sans', sans-serif;
 }
 
@@ -18,7 +22,7 @@ button,
     border: 1px solid #aaa;
     border-radius: 2px;
     background-color: #ddd;
-    padding: 0.3rem 1rem;
+    padding: 0.5rem 1rem;
     font-family: 'Merriweather Sans', sans-serif;
     cursor: pointer;
 }
