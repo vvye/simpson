@@ -1,2 +1,2 @@
-<h1>Error</h1>
+<h2>Error</h2>
 <p>That page couldn't be found.</p>
