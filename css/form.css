@@ -2,6 +2,22 @@ form {
     margin: 2rem 0;
 }
 
+form table {
+    margin: auto;
+}
+
+form table td {
+    padding: 0.2rem 0.5rem;
+}
+
+form table td:first-child {
+    text-align: right;
+}
+
+form table td.action {
+    padding-top: 0.5rem;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -43,4 +59,14 @@ button.primary,
 button.primary:hover,
 .button.primary:hover {
     background-color: #18f;
+}
+
+button.large,
+.button.large {
+    font-size: 1.2rem;
+}
+
+button.full-size,
+.button.full-size {
+    width: 100%;
 }
