@@ -4,7 +4,7 @@
 }
 
 body {
-    font: 1rem/150% sans-serif;
+    font: 1rem/150% 'Merriweather Sans', sans-serif;;
     background: #f8f8f8;
     color: #222;
 }
@@ -60,7 +60,7 @@ h1 {
 h1 + p {
     position: relative;
     top: -1.5rem;
-    left: 9.25rem;
+    left: 10.25rem;
     color: #666;
     font-size: 1.2rem;
 }
