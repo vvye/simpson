@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 1rem/150% sans-serif;
+    background: #f8f8f8;
+    color: #222;
+}
+
+nav ul {
+    background-color: #333;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+    color: #eee;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+.main {
+    max-width: 64rem;
+    margin: auto;
+    padding: 3rem 1rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 0.5rem;
+}
