@@ -1,0 +1,3 @@
+<?php
+
+	renderTemplate('404');
