@@ -3,7 +3,7 @@
 	require_once __DIR__ . '/../config/pages.php';
 
 
-	function getCurrentPage()
+	function setupCurrentPage()
 	{
 		global $currentPage;
 

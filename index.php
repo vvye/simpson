@@ -10,8 +10,8 @@
 	require_once __DIR__ . '/inc/functions/menu.php';
 
 
-	getCurrentPage();
-	getDatabase();
+	setupCurrentPage();
+	setupDatabase();
 
 ?><!doctype html>
 <html lang="en">

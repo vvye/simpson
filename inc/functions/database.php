@@ -5,7 +5,7 @@
 	require_once __DIR__ . '/../config/database.php';
 
 
-	function getDatabase()
+	function setupDatabase()
 	{
 		global $database;
 
