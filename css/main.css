@@ -9,16 +9,20 @@ body {
     color: #222;
 }
 
-nav h1 {
+nav {
+    background-color: #333;
+}
+
+nav span {
     margin: 0 2rem;
     color: #eee;
     line-height: 1.5rem;
     display: inline-block;
     vertical-align: bottom;
+    font-size: 1.5rem;
 }
 
 nav ul {
-    background-color: #333;
     font-size: 0;
 }
 
