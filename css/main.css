@@ -111,11 +111,22 @@ p {
     border: 1px solid #aaa;
     border-radius: 2px;
     background-color: #f4f4f4;
-    padding: 1rem;
+    padding: 2rem 1rem;
+}
+
+.message {
+    border: 1px solid;
+    border-left-width: 6px;
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
+    color: #18f;
+}
+
+.message.error {
+    color: #f31;
 }
 
 .register h3 {
-    margin-top: 1rem;
     font-size: 1.8rem;
     text-align: center;
     font-weight: normal;

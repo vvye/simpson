@@ -5,13 +5,11 @@
 	require_once __DIR__ . '/../config/database.php';
 
 
-	function setupDatabase()
+	function getDatabase()
 	{
-		global $database;
-
 		try
 		{
-			$database = new Medoo\Medoo([
+			return new Medoo\Medoo([
 				'server'        => DB_SERVER,
 				'username'      => DB_USERNAME,
 				'password'      => DB_PASSWORD,

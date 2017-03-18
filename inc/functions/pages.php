@@ -3,14 +3,13 @@
 	require_once __DIR__ . '/../config/pages.php';
 
 
-	function setupCurrentPage()
+	function getCurrentPage()
 	{
-		global $currentPage;
-
 		$pages = PAGES;
 		$currentPageName = $_GET['p'] ?? DEFAULT_PAGE_NAME;
-		$currentPage = $pages[$currentPageName] ?? ERROR_PAGE;
+		return $pages[$currentPageName] ?? ERROR_PAGE;
 	}
+
 
 	function renderCurrentPage()
 	{
