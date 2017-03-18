@@ -13,22 +13,24 @@ nav {
     background-color: #333;
 }
 
-nav span {
-    margin: 0 2rem;
-    color: #eee;
-    line-height: 1.5rem;
-    display: inline-block;
-    vertical-align: bottom;
-    font-size: 1.5rem;
-}
-
 nav ul {
+    max-width: 64rem;
+    margin: auto;
     font-size: 0;
 }
 
 nav ul li {
     display: inline-block;
     font-size: 1rem;
+}
+
+nav ul li .title {
+    margin-right: 2rem;
+    color: #eee;
+    line-height: 1.5rem;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 1.5rem;
 }
 
 nav ul li a {
