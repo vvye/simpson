@@ -1,5 +1,2 @@
 .idea
-*.iml
-out
-gen
 /inc/config/database.php
