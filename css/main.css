@@ -98,6 +98,7 @@ p {
 
 .panel {
     border: 1px solid #aaa;
+    border-radius: 2px;
     background-color: #eee;
     padding: 1rem;
 }
