@@ -4,7 +4,7 @@
 }
 
 body {
-    font: 14px/150% 'Merriweather Sans', sans-serif;;
+    font: 14px/150% 'Merriweather Sans', sans-serif;
     background-color: white;
     color: #222;
 }
@@ -42,6 +42,11 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #555;
+}
+
+nav ul li.active a,
+nav ul li.active a:hover {
+    background-color: #666;
 }
 
 .main {

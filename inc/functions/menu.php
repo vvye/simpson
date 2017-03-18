@@ -2,8 +2,11 @@
 
 	function renderMenu() {
 
+		global $currentPage;
+
 		renderTemplate('menu', [
-			'menuItems' => PAGES
+			'menuItems' => PAGES,
+			'currentPageName' => $currentPage['name']
 		]);
 
 	}
