@@ -14,7 +14,7 @@ nav {
 }
 
 nav ul {
-    max-width: 64rem;
+    max-width: 72rem;
     margin: auto;
     font-size: 0;
 }
@@ -45,7 +45,7 @@ nav ul li a:hover {
 }
 
 .main {
-    max-width: 64rem;
+    max-width: 72rem;
     margin: auto;
     padding: 3rem 1rem;
 }
@@ -112,7 +112,7 @@ p {
 }
 
 footer {
-    max-width: 64rem;
+    max-width: 72rem;
     margin: 2rem auto 0;
     border-top: 1px solid #aaa;
     padding-top: 1rem;
