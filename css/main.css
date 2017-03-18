@@ -78,3 +78,26 @@ h2 {
 p {
     margin-bottom: 0.5rem;
 }
+
+.grid {
+    clear-after: both;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.column:first-child .content {
+    padding-right: 1rem;
+}
+
+.column:last-child .content {
+    padding-left: 1rem;
+}
+
+.panel {
+    border: 1px solid #aaa;
+    background-color: #eee;
+    padding: 1rem;
+}
