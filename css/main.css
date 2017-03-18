@@ -48,6 +48,26 @@ nav ul li a:hover {
     padding: 3rem 1rem;
 }
 
+h1 {
+    margin-bottom: 1rem;
+    font-size: 5rem;
+    font-weight: normal;
+    line-height: 5rem;
+}
+
+h1 + p {
+    position: relative;
+    top: -1.5rem;
+    left: 9.25rem;
+    color: #666;
+    font-size: 1.2rem;
+}
+
+h1 + p em {
+    font-style: normal;
+    text-decoration: underline;
+}
+
 h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
