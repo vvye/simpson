@@ -5,7 +5,7 @@
 			<h1>simpson</h1>
 			<p>a <em>simp</em>le <em>soc</em>ial <em>n</em>etwork</p>
 			<p>Hello World! <em>simpson</em> is a minimalist social network that exists for no reason in particular.</p>
-			<form>
+			<form method="post">
 				<label><input type="email" name="email" placeholder="E-Mail" /></label>
 				<label><input type="password" name="password" placeholder="Password" /></label>
 				<button type="submit" name="login">Log in</button>
@@ -17,7 +17,7 @@
 		<div class="content">
 			<div class="panel register">
 				<h3>Join the fun!</h3>
-				<form>
+				<form method="post">
 					<table>
 						<tr>
 							<td><label for="first-name">First name:</label></td>
@@ -37,7 +37,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" class="action">
-								<button type="submit" class="large primary full-size">Join</button>
+								<button type="submit" name="register" class="large primary full-size">Join</button>
 							</td>
 						</tr>
 					</table>
