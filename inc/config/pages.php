@@ -10,5 +10,13 @@
 		'home' => [
 			'name' => 'home',
 			'caption' => 'Home'
+		],
+		'messages' => [
+			'name' => 'messages',
+			'caption' => 'Messages'
+		],
+		'profile' => [
+			'name' => 'profile',
+			'caption' => 'My profile'
 		]
 	]);
