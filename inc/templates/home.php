@@ -31,15 +31,19 @@
 						<table>
 							<tr>
 								<td><label for="first-name">First name:</label></td>
-								<td><input type="text" id="first-name" name="first-name" /></td>
+								<td>
+									<input type="text" id="first-name" name="first-name" placeholder="First name" />
+								</td>
 							</tr>
 							<tr>
 								<td><label for="last-name">Last name:</label></td>
-								<td><input type="text" id="last-name" name="last-name" /></td>
+								<td>
+									<input type="text" id="last-name" name="last-name" placeholder="Last name" />
+								</td>
 							</tr>
 							<tr>
 								<td><label for="email">E-Mail:</label></td>
-								<td><input type="email" id="email" name="email" /></td>
+								<td><input type="email" id="email" name="email" placeholder="E-Mail" /></td>
 							</tr>
 							<tr>
 								<td><label for="password">Choose a password:</label></td>
