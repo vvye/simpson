@@ -1,6 +1,6 @@
 <?php
 
-	require_once __DIR__ . '/../inc/config/user.php';
+	require_once __DIR__ . '/../../config/user.php';
 
 
 	define('MSG_EMAIL_TAKEN',
