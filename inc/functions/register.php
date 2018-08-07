@@ -12,29 +12,29 @@
 		{
 			$errorMessages[] = MSG_EMAIL_MISSING;
 		}
-		if (getFieldValue('email') !== getFieldValue('email-confirm'))
-		{
-			$errorMessages[] = MSG_EMAILS_DONT_MATCH;
-		}
-		if (!preg_match('/^' . VALID_USERNAME_REGEX . '$/', getFieldValue('username')))
-		{
-			$errorMessages[] = MSG_INVALID_USERNAME;
-		}
-		if (strlen(getFieldValue('password')) < 8)
-		{
-			$errorMessages[] = MSG_PASSWORD_TOO_SHORT;
-		}
-		if (getFieldValue('password') !== getFieldValue('password-confirm'))
-		{
-			$errorMessages[] = MSG_PASSWORDS_DONT_MATCH;
-		}
 		if (emailExists(getFieldValue('email')))
 		{
 			$errorMessages[] = MSG_EMAIL_TAKEN;
 		}
-		if (usernameExists(getFieldValue('username')))
+		if (trim(getFieldValue('first-name')) === '')
 		{
-			$errorMessages[] = MSG_USERNAME_TAKEN;
+			$errorMessages[] = MSG_FIRST_NAME_MISSING;
+		}
+		else if (!preg_match('/^' . VALID_USERNAME_REGEX . '$/', getFieldValue('first-name')))
+		{
+			$errorMessages[] = MSG_INVALID_FIRST_NAME;
+		}
+		if (trim(getFieldValue('last-name')) === '')
+		{
+			$errorMessages[] = MSG_LAST_NAME_MISSING;
+		}
+		else if (!preg_match('/^' . VALID_USERNAME_REGEX . '$/', getFieldValue('last-name')))
+		{
+			$errorMessages[] = MSG_INVALID_LAST_NAME;
+		}
+		if (strlen(getFieldValue('password')) < MIN_PASSWORD_LENGTH)
+		{
+			$errorMessages[] = MSG_PASSWORD_TOO_SHORT;
 		}
 
 		return $errorMessages;
@@ -65,25 +65,22 @@
 	}
 
 
-	function startRegistration($email, $username, $passwordHash)
+	function startRegistration($email, $firstName, $lastName, $passwordHash)
 	{
 		global $database;
 
 		$activationToken = bin2hex(random_bytes(16));
 
-		$userId = $database->insert('users', [
-			'id'                   => null,
-			'email'                => strtolower(htmlspecialchars($email)),
-			'name'                 => htmlspecialchars($username),
-			'password'             => $passwordHash,
-			'legacy_login'         => 0,
-			'registration_time'    => time(),
-			'activated'            => 0,
-			'enable_notifications' => 1,
-			'activation_token'     => $activationToken
+		$database->insert('users', [
+			'id'                => null,
+			'first_name'        => htmlspecialchars($firstName),
+			'last_name'         => htmlspecialchars($lastName),
+			'password'          => $passwordHash,
+			'email'             => strtolower(htmlspecialchars($email)),
+			'bio'               => '',
+			'registration_time' => time(),
+			'last_login_time'   => 0,
 		]);
-
-		return $userId;
 	}
 	
 	

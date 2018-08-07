@@ -126,6 +126,10 @@ p {
     color: #f31;
 }
 
+.message.success {
+    color: #4a2;
+}
+
 .register h3 {
     font-size: 1.8rem;
     text-align: center;

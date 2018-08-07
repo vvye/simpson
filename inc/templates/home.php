@@ -24,7 +24,7 @@
 		<div class="content">
 			<div class="panel register">
 				<?php if ($loggedIn): ?>
-					<h3>Hi <?= $firstName ?>!</h3>
+					<h3>Hi <?= $displayName ?>!</h3>
 				<?php else: ?>
 					<h3>Join the fun!</h3>
 					<form action="<?= BASE_PATH ?>/home" method="post">
@@ -32,28 +32,50 @@
 							<tr>
 								<td><label for="first-name">First name:</label></td>
 								<td>
-									<input type="text" id="first-name" name="first-name" placeholder="First name" />
+									<input type="text" id="first-name" name="first-name" placeholder="First name"
+									       value="<?= $firstName ?>" />
 								</td>
 							</tr>
 							<tr>
 								<td><label for="last-name">Last name:</label></td>
 								<td>
-									<input type="text" id="last-name" name="last-name" placeholder="Last name" />
+									<input type="text" id="last-name" name="last-name" placeholder="Last name"
+									       value="<?= $lastName ?>" />
 								</td>
 							</tr>
 							<tr>
 								<td><label for="email">E-Mail:</label></td>
-								<td><input type="email" id="email" name="email" placeholder="E-Mail" /></td>
+								<td>
+									<input type="email" id="email" name="email" placeholder="E-Mail"
+									       value="<?= $email ?>" />
+								</td>
 							</tr>
 							<tr>
 								<td><label for="password">Choose a password:</label></td>
-								<td><input type="password" id="password" name="password" /></td>
+								<td>
+									<input type="password" id="password" name="password" value="<?= $password ?>" />
+								</td>
 							</tr>
 							<tr>
 								<td colspan="2" class="action">
 									<button type="submit" name="register" class="large primary full-size">Join</button>
 								</td>
 							</tr>
+							<?php if ($registrationAttempted): ?>
+								<tr>
+									<td colspan="2">
+										<?php if (empty($registrationErrorMessages)): ?>
+											<div class="message success">
+												Welcome to <em>simpson</em>! You can log in now.
+											</div>
+										<?php else: ?>
+											<div class="message error">
+												<?= join('<br />', $registrationErrorMessages) ?>
+											</div>
+										<?php endif ?>
+									</td>
+								</tr>
+							<?php endif ?>
 						</table>
 					</form>
 				<?php endif ?>
