@@ -27,7 +27,7 @@
 			'condition' => isLoggedIn()
 		],
 		'logout' => [
-			'link' => 'session.php?action=logout',
+			'link' => BASE_PATH . '/session.php?action=logout',
 			'name' => 'logout',
 			'caption' => 'Log out',
 			'condition' => isLoggedIn()
