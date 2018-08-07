@@ -15,6 +15,4 @@ This is what I'm loosely trying to follow:
 * Initially, no special focus on security.
 
 ## License and usage and stuff
-This is my first real encounter with GitHub, and indeed, with VCS in general. If I'm breaking any rules or doing anything weird, do let me know.
-
 *simpson* is a "why the hell did i start this" kind of project, and I don't presently care what will become of it when it's finished. Use it, fork it, improve it, no credit or anything required, be my guest. (That's assuming this receives any attention in the first place.)
