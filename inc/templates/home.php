@@ -6,7 +6,7 @@
 			<p>a <em>simp</em>le <em>soc</em>ial <em>n</em>etwork</p>
 			<p>Hello World! <em>simpson</em> is a minimalist social network that exists for no reason in particular.</p>
 			<?php if (!$loggedIn): ?>
-				<form method="post" action="session.php?action=login">
+				<form action="<?= BASE_PATH ?>/session.php?action=login" method="post">
 					<label><input type="email" name="email" placeholder="E-Mail" /></label>
 					<label><input type="password" name="password" placeholder="Password" /></label>
 					<button type="submit">Log in</button>
@@ -27,7 +27,7 @@
 					<h3>Hi <?= $firstName ?>!</h3>
 				<?php else: ?>
 					<h3>Join the fun!</h3>
-					<form method="post">
+					<form action="<?= BASE_PATH ?>/home" method="post">
 						<table>
 							<tr>
 								<td><label for="first-name">First name:</label></td>
