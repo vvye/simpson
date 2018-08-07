@@ -8,5 +8,5 @@
 
 	if (isset($_POST['register']))
 	{
-		echo $_POST;
+		print_r($_POST);
 	}
