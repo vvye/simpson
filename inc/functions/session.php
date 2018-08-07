@@ -13,10 +13,7 @@
 			'last_name',
 			'password'
 		], [
-			'AND' => [
-				'email'     => $givenEmail,
-				'activated' => 1
-			]
+			'email' => $givenEmail
 		]);
 
 		if (!is_array($user) || empty($user))
