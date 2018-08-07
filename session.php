@@ -10,20 +10,17 @@
 
 	$baseUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']);
 
-	$previousPage = $_SESSION['referrer'] ?? '?p=home';
-	unset($_SESSION['referrer']);
-
 	if (isset($_GET['action']) && $_GET['action'] === 'login')
 	{
 		$loginSuccess = doLogin();
-		header('Location: ' . $baseUrl . '?p=home' . ($loginSuccess ? '' : '&login-error'));
+		header('Location: ' . $baseUrl . '/home' . ($loginSuccess ? '' : '&login-error'));
 	}
 	else if (isset($_GET['action']) && $_GET['action'] === 'logout')
 	{
 		doLogout();
-		header('Location: ' . $baseUrl . '?p=home');
+		header('Location: ' . $baseUrl . '/home');
 	}
 	else
 	{
-		header('Location: ' . $baseUrl . '?p=home');
+		header('Location: ' . $baseUrl . '/home');
 	}
