@@ -4,7 +4,7 @@
 		<?php foreach ($menuItems as $menuItem): ?>
 			<?php if ($menuItem['condition'] ?? true): ?>
 				<li<?= $menuItem['name'] === $currentPageName ? ' class="active"' : '' ?>>
-					<a href="<?= $menuItem['link'] ?? ('?p=' . $menuItem['name']) ?>">
+					<a href="<?= $menuItem['link'] ?? ('/' . $menuItem['name']) ?>">
 						<?= $menuItem['caption'] ?? $menuItem['name'] ?>
 					</a>
 				</li>
