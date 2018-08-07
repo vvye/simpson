@@ -11,6 +11,7 @@
 	require_once __DIR__ . '/inc/functions/pages.php';
 	require_once __DIR__ . '/inc/functions/templates.php';
 	require_once __DIR__ . '/inc/functions/menu.php';
+	require_once __DIR__ . '/inc/strings.php';
 
 	$currentPage = getCurrentPage();
 	$database = getDatabase();
