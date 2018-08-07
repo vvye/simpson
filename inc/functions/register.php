@@ -69,8 +69,6 @@
 	{
 		global $database;
 
-		$activationToken = bin2hex(random_bytes(16));
-
 		$database->insert('users', [
 			'id'                => null,
 			'first_name'        => htmlspecialchars($firstName),
