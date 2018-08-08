@@ -1,3 +1,7 @@
+<?php if ($isOwnProfile): ?>
+	<a class="button" href="<?= BASE_PATH ?>/edit-profile">Edit profile</a>
+<?php endif ?>
+
 <h2><?= $firstName ?> <?= $lastName ?></h2>
 
 <?php if ($isEmailPublic): ?>

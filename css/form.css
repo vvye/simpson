@@ -35,12 +35,16 @@ input[type="password"]:focus {
 
 button,
 .button {
+    display: inline-block;
+    margin-bottom: 1rem;
     border: 1px solid #aaa;
     border-radius: 2px;
     background-color: #ddd;
     padding: 0.5rem 1rem;
     font-family: 'Merriweather Sans', sans-serif;
     cursor: pointer;
+    color: #222;
+    text-decoration: none;
 }
 
 button:hover,
