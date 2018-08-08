@@ -154,3 +154,7 @@ footer p {
     color: #aaa;
     font-size: 0.8rem;
 }
+
+.clearfix {
+    clear: both;
+}

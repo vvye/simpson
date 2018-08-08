@@ -1,6 +1,8 @@
 <?php if ($isOwnProfile): ?>
-	<a class="button" href="<?= BASE_PATH ?>/edit-profile">Edit profile</a>
+	<div><a class="button" href="<?= BASE_PATH ?>/edit-profile">Edit profile</a></div>
 <?php endif ?>
+
+<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" />
 
 <h2><?= $firstName ?> <?= $lastName ?></h2>
 
@@ -10,11 +12,12 @@
 
 <p>
 	Registered: <?= formatDate($registrationTime, true) ?><br />
-	Last seen: <?= formatDate($lastLoginTime, true) ?>
+	Last login: <?= formatDate($lastLoginTime, true) ?>
 </p>
 
+<div class="clearfix"></div>
+
 <?php if ($bio !== ''): ?>
-	<hr />
 	<p><?= $bio ?></p>
 <?php endif ?>
 
