@@ -2,7 +2,7 @@
 
 	function renderTemplate($templateName, $vars = [])
 	{
-		$templateFilename = __DIR__ . '/../lang/en/templates/' . $templateName . '.php';
+		$templateFilename = __DIR__ . '/../templates/' . $templateName . '.php';
 
 		if (file_exists($templateFilename))
 		{

@@ -13,7 +13,7 @@
 	require_once __DIR__ . '/inc/functions/menu.php';
 	require_once __DIR__ . '/inc/functions/misc.php';
 
-	require_once __DIR__ . '/inc/lang/en/strings.php';
+	require_once __DIR__ . '/inc/config/strings.php';
 
 	$currentPage = getCurrentPage();
 	$currentSubpageName = getCurrentSubpageName();
