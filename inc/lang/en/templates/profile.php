@@ -1,1 +1,1 @@
-hello user <?= $userId ?>!
+<h2><?= $firstName ?> <?= $lastName ?></h2>

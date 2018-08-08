@@ -1,5 +1,8 @@
 <?php
 
+	require_once __DIR__ . '/../functions/users.php';
+
+
 	global $currentSubpageName;
 
 	do
@@ -16,9 +19,22 @@
 			$isOwnProfile = false;
 		}
 
+		$user = getUser($userId);
+		if ($user === null)
+		{
+			renderErrorMessage(MSG_USER_DOESNT_EXIST);
+			break;
+		}
 
 		renderTemplate('profile', [
-			'userId' => $userId
+			'isOwnProfile'     => $isOwnProfile,
+			'userId'           => $userId,
+			'firstName'        => $user['first_name'],
+			'lastName'         => $user['last_name'],
+			'email'            => $user['email'],
+			'isEmailPublic'    => $user['email_public'],
+			'registrationTime' => $user['registration_time'],
+			'lastLoginTime'    => $user['last_login_time']
 		]);
 
 	} while (false);

@@ -23,3 +23,6 @@
 
 	define('MSG_LAST_NAME_MISSING',
 		'Enter a last name.');
+
+	define('MSG_USER_DOESNT_EXIST',
+		'That user doesn\'t exist.');

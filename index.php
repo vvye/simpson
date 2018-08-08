@@ -11,6 +11,7 @@
 	require_once __DIR__ . '/inc/functions/pages.php';
 	require_once __DIR__ . '/inc/functions/templates.php';
 	require_once __DIR__ . '/inc/functions/menu.php';
+	require_once __DIR__ . '/inc/functions/misc.php';
 
 	require_once __DIR__ . '/inc/lang/en/strings.php';
 
@@ -26,8 +27,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>simpson</title>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,700" />
-		<link rel="stylesheet" type="text/css" href="css/main.css" />
-		<link rel="stylesheet" type="text/css" href="css/form.css" />
+		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/form.css" />
 	</head>
 	<body>
 
