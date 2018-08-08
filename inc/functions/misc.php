@@ -75,3 +75,9 @@
 
 		return $now - $time > 0 ? $result . ' ago' : 'in ' . $result;
 	}
+
+
+	function obfuscateEmail($email)
+	{
+		return str_replace(['@', '.'], [' <code>at</code> ', ' <code>dot</code> '], $email);
+	}
