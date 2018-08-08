@@ -1,1 +1,1 @@
-lorem ipsum
+hello user <?= $userId ?>!
