@@ -11,13 +11,23 @@
 	}
 
 
+	function getCurrentSubpageName()
+	{
+		return $_GET['s'] ?? DEFAULT_SUBPAGE_NAME;
+	}
+
+
 	function renderCurrentPage()
 	{
 		global $currentPage;
 
 		$pageName = $currentPage['name'];
 
-		if (file_exists($filename = __DIR__ . '/../pages/' . $pageName . '.php'))
+		if (isset($currentPage['condition']) && !$currentPage['condition'])
+		{
+			include __DIR__ . '/../pages/' . DEFAULT_PAGE_NAME . '.php';
+		}
+		else  if (file_exists($filename = __DIR__ . '/../pages/' . $pageName . '.php'))
 		{
 			include $filename;
 		}

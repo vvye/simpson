@@ -1,3 +1,8 @@
 <?php
 
-	renderTemplate('profile');
+	do
+	{
+
+		renderTemplate('profile');
+
+	} while (false);

@@ -15,6 +15,8 @@
 	require_once __DIR__ . '/inc/lang/en/strings.php';
 
 	$currentPage = getCurrentPage();
+	$currentSubpageName = getCurrentSubpageName();
+
 	$database = getDatabase();
 
 ?><!doctype html>

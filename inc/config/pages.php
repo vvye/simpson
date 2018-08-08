@@ -1,11 +1,10 @@
 <?php
 
-	require_once __DIR__ . '/../functions/environment.php';
-
-
-	define('BASE_PATH', isLocalEnv() ? '/simpson' : '');
+	define('BASE_PATH', '/simpson');
 
 	define('DEFAULT_PAGE_NAME', 'home');
+
+	define('DEFAULT_SUBPAGE_NAME', '');
 
 	define('ERROR_PAGE', [
 		'name' => '404'
