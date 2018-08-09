@@ -50,6 +50,7 @@
 		<legend>Avatar</legend>
 		<table>
 			<tr>
+				<td></td>
 				<td>
 					<label class="checkbox">
 						<input type="checkbox" name="change-avatar" />
@@ -58,6 +59,7 @@
 				</td>
 			</tr>
 			<tr>
+				<td></td>
 				<td>
 					<label class="checkbox">
 						<input type="checkbox" name="remove-avatar" />
@@ -67,4 +69,5 @@
 			</tr>
 		</table>
 	</fieldset>
+	<input type="submit" class="large primary button" value="Edit profile">
 </form>
