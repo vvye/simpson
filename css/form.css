@@ -53,12 +53,21 @@ textarea {
     min-width: 12rem;
 }
 
-input[type="text"].stacked,
-input[type="email"].stacked,
-input[type="password"].stacked {
+.stacked-input input {
     display: block;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: -1px 0 0;
+    border-radius: 0;
+}
+
+.stacked-input input:first-of-type {
+    margin: 0;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.stacked-input input:last-of-type {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 button,

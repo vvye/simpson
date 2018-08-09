@@ -41,10 +41,8 @@
 			</tr>
 			<tr>
 				<td><label for="new-password-1">New password:</label></td>
-				<td>
+				<td class="stacked-input">
 					<input type="password" class="stacked" id="new-password-1" name="new-password-1" />
-				</td>
-				<td>
 					<input type="password" class="stacked" id="new-password-2" name="new-password-2" />
 				</td>
 			</tr>
