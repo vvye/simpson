@@ -13,10 +13,6 @@ form table td.action {
     padding-top: 0.5rem;
 }
 
-form table td:nth-child(2) label {
-    margin-right: 2rem;
-}
-
 fieldset {
     border: 1px solid #aaa;
     border-radius: 2px;
@@ -117,6 +113,10 @@ button.full-size,
     display: inline-block;
     line-height: 2.2rem;
     cursor: pointer;
+}
+
+.checkbox:not(:first-child) {
+    margin-left: 2rem;
 }
 
 .checkbox input[type="checkbox"] {
