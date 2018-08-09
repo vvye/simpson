@@ -13,7 +13,7 @@ form table td.action {
     padding-top: 0.5rem;
 }
 
-form table:nth-child(2) label {
+form table td:nth-child(2) label {
     margin-right: 2rem;
 }
 

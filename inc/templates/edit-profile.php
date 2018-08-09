@@ -3,31 +3,31 @@
 		<legend>Personal info</legend>
 		<table>
 			<tr>
-				<td>First name:</td>
+				<td><label for="first-name">First name:</label></td>
 				<td>
-					<label><input type="text" name="first-name" /></label>
+					<label><input type="text" id="first-name" name="first-name" /></label>
 				</td>
 			</tr>
 			<tr>
-				<td>Last name:</td>
+				<td><label for="last-name">Last name:</label></td>
 				<td>
-					<label><input type="text" name="last-name" /></label>
+					<label><input type="text" id="last-name" name="last-name" /></label>
 				</td>
 			</tr>
 			<tr>
-				<td>E-Mail address:</td>
+				<td><label for="email">E-Mail address:</label></td>
 				<td>
-					<label><input type="email" name="email" /></label>
+					<label><input type="email" id="email" name="email" /></label>
 					<label class="checkbox">
-						<input type="checkbox" name="email-public" />
+						<input type="checkbox" id="email-public" name="email-public" />
 						<span class="label">Show my e-mail address in public</span>
 					</label>
 				</td>
 			</tr>
 			<tr>
-				<td>Bio:</td>
+				<td><label for="bio">Bio:</label></td>
 				<td>
-					<label><textarea name="bio"></textarea></label>
+					<label><textarea id="bio" name="bio"></textarea></label>
 				</td>
 			</tr>
 		</table>
@@ -36,13 +36,13 @@
 		<legend>Credentials</legend>
 		<table>
 			<tr>
-				<td>Old password:</td>
-				<td><label><input type="password" name="old-password" /></label></td>
+				<td><label for="old-password">Old password:</label></td>
+				<td><label><input type="password" id="old-password" name="old-password" /></label></td>
 			</tr>
 			<tr>
-				<td>New password:</td>
-				<td><label><input type="password" name="new-password-1" /></label></td>
-				<td><label><input type="password" name="new-password-2" /></label></td>
+				<td><label for="new-password-1">New password:</label></td>
+				<td><label><input type="password" id="new-password-1" name="new-password-1" /></label></td>
+				<td><label><input type="password" id="new-password-2" name="new-password-2" /></label></td>
 			</tr>
 		</table>
 	</fieldset>
@@ -53,7 +53,7 @@
 				<td></td>
 				<td>
 					<label class="checkbox">
-						<input type="checkbox" name="change-avatar" />
+						<input type="checkbox" id="change-avatar" name="change-avatar" />
 						<span class="label">Choose a new avatar</span>
 					</label>
 				</td>
@@ -62,7 +62,7 @@
 				<td></td>
 				<td>
 					<label class="checkbox">
-						<input type="checkbox" name="remove-avatar" />
+						<input type="checkbox" id="remove-avatar" name="remove-avatar" />
 						<span class="label">Remove avatar</span>
 					</label>
 				</td>
