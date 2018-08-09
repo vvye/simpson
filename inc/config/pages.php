@@ -11,24 +11,29 @@
 	]);
 
 	define('PAGES', [
-		'home' => [
-			'name' => 'home',
+		'home'         => [
+			'name'    => 'home',
 			'caption' => 'Home'
 		],
-		'messages' => [
-			'name' => 'messages',
-			'caption' => 'Messages',
+		'messages'     => [
+			'name'      => 'messages',
+			'caption'   => 'Messages',
 			'condition' => isLoggedIn()
 		],
-		'profile' => [
-			'name' => 'profile',
-			'caption' => 'My profile',
+		'profile'      => [
+			'name'      => 'profile',
+			'caption'   => 'My profile',
 			'condition' => isLoggedIn()
 		],
-		'logout' => [
-			'link' => BASE_PATH . '/session.php?action=logout',
-			'name' => 'logout',
-			'caption' => 'Log out',
+		'logout'       => [
+			'link'      => BASE_PATH . '/session.php?action=logout',
+			'name'      => 'logout',
+			'caption'   => 'Log out',
 			'condition' => isLoggedIn()
+		],
+		'edit-profile' => [
+			'name'      => 'edit-profile',
+			'condition' => isLoggedIn(),
+			'inMenu'    => false,
 		]
 	]);
