@@ -53,6 +53,14 @@ textarea {
     min-width: 12rem;
 }
 
+input[type="text"].stacked,
+input[type="email"].stacked,
+input[type="password"].stacked {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 button,
 .button {
     display: inline-block;
