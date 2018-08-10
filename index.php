@@ -55,5 +55,7 @@
 			</p>
 		</footer>
 
+		<script type="text/javascript" src="<?= BASE_PATH ?>/js/main.js"></script>
+
 	</body>
 </html>

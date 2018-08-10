@@ -157,6 +157,10 @@ button.full-size,
     background-color: #888;
 }
 
+.file-input span {
+    margin-left: 1rem;
+}
+
 .register form {
     margin: 2rem 0;
 }

@@ -89,3 +89,6 @@
 	</fieldset>
 	<input type="submit" name="submit" class="large primary button" value="Edit profile">
 </form>
+
+<script type="text/javascript" src="<?= BASE_PATH ?>/js/file-input.js"></script>
+<script type="text/javascript" src="<?= BASE_PATH ?>/js/edit-profile.js"></script>
