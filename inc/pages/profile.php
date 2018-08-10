@@ -32,7 +32,7 @@
 			'firstName'        => $user['first_name'],
 			'lastName'         => $user['last_name'],
 			'email'            => obfuscateEmail($user['email']),
-			'bio'              => $user['bio'],
+			'bio'              => nl2br($user['bio']),
 			'isEmailPublic'    => $user['email_public'],
 			'registrationTime' => $user['registration_time'],
 			'lastLoginTime'    => $user['last_login_time'],
