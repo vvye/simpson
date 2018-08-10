@@ -1,5 +1,5 @@
 <?php if ($isOwnProfile): ?>
-	<div><a class="button" href="<?= BASE_PATH ?>/edit-profile">Edit profile</a></div>
+	<div><a class="button" href="<?= BASE_PATH ?>/edit-profile?token=<?= $token ?>">Edit profile</a></div>
 <?php endif ?>
 
 <img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" />

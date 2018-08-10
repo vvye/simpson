@@ -26,3 +26,21 @@
 
 	define('MSG_USER_DOESNT_EXIST',
 		'That user doesn\'t exist.');
+
+	define('MSG_AVATAR_GENERAL_ERROR',
+		'The avatar couldn\'t be uploaded.');
+
+	define('MSG_AVATAR_WRONG_FILE_FORMAT',
+		'The avatar is in the wrong format.');
+
+	define('MSG_BAD_TOKEN',
+		'Bad token.');
+
+	define('MSG_WRONG_PASSWORD',
+		'That password is wrong.');
+
+	define('MSG_PASSWORDS_DONT_MATCH',
+		'The new passwords don\'t match.');
+
+	define('MSG_EDIT_PROFILE_SUCCESS',
+		'Changes saved!');

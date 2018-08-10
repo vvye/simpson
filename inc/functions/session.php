@@ -105,3 +105,15 @@
 	{
 		return $_SESSION['loggedIn'] ?? false;
 	}
+
+
+	function updatePassword($userId, $password)
+	{
+		global $database;
+
+		$database->update('users', [
+			'password'     => password_hash($password, PASSWORD_DEFAULT)
+		], [
+			'id' => $userId
+		]);
+	}

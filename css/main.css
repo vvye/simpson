@@ -121,6 +121,7 @@ p {
 }
 
 .message {
+    margin-bottom: 1rem;
     border: 1px solid;
     border-left-width: 6px;
     border-radius: 2px;

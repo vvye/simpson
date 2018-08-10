@@ -27,3 +27,18 @@
 
 		return $users[0];
 	}
+
+
+	function setUserData($userId, $data)
+	{
+		global $database;
+
+		$database->update('users', [
+			'email'      => strtolower(htmlspecialchars($data['email'])),
+			'first_name' => htmlspecialchars($data['firstName']),
+			'last_name'  => htmlspecialchars($data['lastName']),
+			'bio'        => htmlspecialchars($data['bio']),
+		], [
+			'id' => $userId
+		]);
+	}

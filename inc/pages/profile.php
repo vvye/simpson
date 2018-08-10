@@ -8,7 +8,7 @@
 	do
 	{
 
-		if ($currentSubpageName === DEFAULT_SUBPAGE_NAME)
+		if ($currentSubpageName === DEFAULT_SUBPAGE_NAME || !is_numeric($currentSubpageName))
 		{
 			$userId = $_SESSION['userId'];
 			$isOwnProfile = true;
@@ -35,7 +35,8 @@
 			'bio'              => $user['bio'],
 			'isEmailPublic'    => $user['email_public'],
 			'registrationTime' => $user['registration_time'],
-			'lastLoginTime'    => $user['last_login_time']
+			'lastLoginTime'    => $user['last_login_time'],
+			'token'            => getCsrfToken()
 		]);
 
 	} while (false);
