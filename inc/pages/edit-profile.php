@@ -134,10 +134,11 @@
 			if (!$error)
 			{
 				setUserData($userId, [
-					'email'     => $email,
-					'firstName' => $firstName,
-					'lastName'  => $lastName,
-					'bio'       => $bio
+					'email'       => $email,
+					'firstName'   => $firstName,
+					'lastName'    => $lastName,
+					'emailPublic' => $emailPublic,
+					'bio'         => $bio
 				]);
 
 				$_SESSION['firstName'] = $firstName;

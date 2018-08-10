@@ -6,7 +6,7 @@
 
 <h2><?= $firstName ?> <?= $lastName ?></h2>
 
-<?php if ($isEmailPublic): ?>
+<?php if ($emailPublic): ?>
 	<p><?= $email ?></p>
 <?php endif ?>
 

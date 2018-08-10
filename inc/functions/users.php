@@ -34,10 +34,11 @@
 		global $database;
 
 		$database->update('users', [
-			'email'      => strtolower(htmlspecialchars($data['email'])),
-			'first_name' => htmlspecialchars($data['firstName']),
-			'last_name'  => htmlspecialchars($data['lastName']),
-			'bio'        => htmlspecialchars($data['bio']),
+			'email'        => strtolower(htmlspecialchars($data['email'])),
+			'email_public' => $data['emailPublic'],
+			'first_name'   => htmlspecialchars($data['firstName']),
+			'last_name'    => htmlspecialchars($data['lastName']),
+			'bio'          => htmlspecialchars($data['bio']),
 		], [
 			'id' => $userId
 		]);
