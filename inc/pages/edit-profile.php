@@ -110,25 +110,22 @@
 			}
 
 			$changeAvatar = isset($_POST['change-avatar']);
+			$deleteAvatar = isset($_POST['delete-avatar']);
 			if ($changeAvatar)
 			{
-				$deleteAvatar = isset($_POST['delete-avatar']);
-				if ($deleteAvatar)
+				$errorMessages = processUploadedAvatar($userId);
+				if (!empty($errorMessages))
 				{
-					deleteAvatar($userId);
-				}
-				else
-				{
-					$errorMessages = processUploadedAvatar($userId);
-					if (!empty($errorMessages))
+					foreach ($errorMessages as $errorMessage)
 					{
-						foreach ($errorMessages as $errorMessage)
-						{
-							renderErrorMessage($errorMessage);
-						}
-						$error = true;
+						renderErrorMessage($errorMessage);
 					}
+					$error = true;
 				}
+			}
+			else if ($deleteAvatar)
+			{
+				deleteAvatar($userId);
 			}
 
 			if (!$error)

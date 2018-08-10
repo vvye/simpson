@@ -1,5 +1,6 @@
 <?php
 
+	require_once __DIR__ . '/../functions/avatars.php';
 	require_once __DIR__ . '/../functions/users.php';
 
 
@@ -32,8 +33,9 @@
 			'firstName'        => $user['first_name'],
 			'lastName'         => $user['last_name'],
 			'email'            => obfuscateEmail($user['email']),
-			'bio'              => nl2br($user['bio']),
 			'emailPublic'      => $user['email_public'],
+			'bio'              => nl2br($user['bio']),
+			'hasAvatar'        => hasAvatar($userId),
 			'registrationTime' => $user['registration_time'],
 			'lastLoginTime'    => $user['last_login_time'],
 			'token'            => getCsrfToken()

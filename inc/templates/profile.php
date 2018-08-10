@@ -2,7 +2,11 @@
 	<div><a class="button" href="<?= BASE_PATH ?>/edit-profile?token=<?= $token ?>">Edit profile</a></div>
 <?php endif ?>
 
-<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" />
+<?php if ($hasAvatar): ?>
+	<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/<?= $userId ?>.png" alt="Avatar" />
+<?php else: ?>
+	<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" alt="Avatar" />
+<?php endif; ?>
 
 <h2><?= $firstName ?> <?= $lastName ?></h2>
 

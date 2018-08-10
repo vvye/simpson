@@ -1,4 +1,4 @@
-<form action="<?= $action ?>" method="post">
+<form action="<?= $action ?>" method="post" enctype="multipart/form-data">
 	<fieldset>
 		<legend>Personal info</legend>
 		<table>
@@ -71,13 +71,16 @@
 						<input type="checkbox" id="change-avatar" name="change-avatar" />
 						<span class="label">Choose a new avatar</span>
 					</label>
+					<div id="edit-avatar" class="hidden">
+						<input type="file" class="file-input" name="avatar" id="avatar" />
+					</div>
 				</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
 					<label class="checkbox">
-						<input type="checkbox" id="remove-avatar" name="remove-avatar" />
+						<input type="checkbox" id="delete-avatar" name="delete-avatar" />
 						<span class="label">Remove avatar</span>
 					</label>
 				</td>
