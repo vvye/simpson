@@ -13,7 +13,7 @@
 	if (isset($_GET['action']) && $_GET['action'] === 'login')
 	{
 		$loginSuccess = doLogin();
-		header('Location: ' . $baseUrl . '/home' . ($loginSuccess ? '' : '&login-error'));
+		header('Location: ' . $baseUrl . '/home' . ($loginSuccess ? '' : '?login-error'));
 	}
 	else if (isset($_GET['action']) && $_GET['action'] === 'logout')
 	{
