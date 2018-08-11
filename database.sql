@@ -11,8 +11,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  `text` longtext NOT NULL
+  `addressee` int(11) DEFAULT NULL,
+  `post_time` int(11) NOT NULL,
+  `content` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
