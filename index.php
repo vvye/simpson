@@ -29,6 +29,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,700" />
 		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/main.css" />
 		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/form.css" />
+		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/user.css" />
 		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/messages.css" />
 	</head>
 	<body>
