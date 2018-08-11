@@ -33,9 +33,42 @@
 
 	function processMessage($message)
 	{
+		$message = processReply($message);
 		$message['hasAddressee'] = $message['addressee_id'] !== null && userExists($message['addressee_id']);
-		$message['authorHasAvatar'] = hasAvatar($message['author_id']);
-		$message['content'] = nl2br($message['content']);
+		$message['replies'] = getReplies($message['id']);
 
 		return $message;
+	}
+
+
+	function processReply($reply)
+	{
+		$reply['authorHasAvatar'] = hasAvatar($reply['author_id']);
+		$reply['content'] = nl2br($reply['content']);
+
+		return $reply;
+	}
+
+
+	function getReplies($messageId)
+	{
+		global $database;
+
+		$replies = $database->select('replies', [
+			'[>]users(author)' => ['user' => 'id']
+		], [
+			'replies.id',
+			'replies.post_time',
+			'replies.content',
+			'author.id(author_id)',
+			'author.first_name(author_first_name)',
+			'author.last_name(author_last_name)'
+		], [
+			'message' => $messageId,
+			'ORDER'   => ['post_time' => 'ASC', 'id' => 'ASC']
+		]);
+
+		$replies = array_map('processReply', $replies);
+
+		return $replies;
 	}

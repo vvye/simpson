@@ -22,55 +22,37 @@
 				<span class="post-time"><?= formatDate($message['post_time'], true) ?></span>
 			</div>
 			<?= $message['content'] ?>
-			<div class="replies">
-				<h3>3 replies</h3>
-				<ul>
-					<li class="reply">
-						<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" />
-						<div class="content">
-							<div class="info">
-								<h4>name</h4>
-								<span class="post-time">odifhgd odijgfoidjfg</span>
-							</div>
-							Nunquam imitari musa. Cum accola velum, omnes bursaes amor domesticus, flavum adgiumes. Est
-							regius elevatus,
-							cesaris. Lumen moris, tanquam altus devirginato. Bullas ridetis in hafnia! Candidatuss
-							favere!
-							Cum racana
-							assimilant, omnes eleateses aperto festus, azureus messores.
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="reply">
-						<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" />
-						<div class="content">
-							<div class="info">
-								<h4>name</h4>
-								<span class="post-time">odifhgd odijgfoidjfg</span>
-							</div>
-							Nunquam imitari musa. Cum accola velum, omnes bursaes amor domesticus, flavum adgiumes. Est
-							regius elevatus,
-							cesaris. Lumen moris, tanquam altus devirginato. Bullas ridetis in hafnia! Candidatuss
-							favere!
-							Cum racana
-							assimilant, omnes eleateses aperto festus, azureus messores.
-							Nunquam imitari musa. Cum accola velum, omnes bursaes amor domesticus, flavum adgiumes. Est
-							regius elevatus,
-							cesaris. Lumen moris, tanquam altus devirginato. Bullas ridetis in hafnia! Candidatuss
-							favere!
-							Cum racana
-							assimilant, omnes eleateses aperto festus, azureus messores.
-							Nunquam imitari musa. Cum accola velum, omnes bursaes amor domesticus, flavum adgiumes. Est
-							regius elevatus,
-							cesaris. Lumen moris, tanquam altus devirginato. Bullas ridetis in hafnia! Candidatuss
-							favere!
-							Cum racana
-							assimilant, omnes eleateses aperto festus, azureus messores.
-						</div>
-						<div class="clearfix"></div>
-					</li>
-				</ul>
-			</div>
+			<?php if (count($message['replies']) > 0): ?>
+				<div class="replies">
+					<h3>
+						<?= count($message['replies']) ?> <?= count($message['replies']) === 1 ? 'reply' : 'replies' ?>
+					</h3>
+					<ul>
+						<?php foreach ($message['replies'] as $reply): ?>
+							<li class="reply">
+								<?php if ($reply['authorHasAvatar']): ?>
+									<img class="avatar"
+									     src="<?= BASE_PATH ?>/img/avatars/<?= $reply['author_id'] ?>.png" />
+								<?php else: ?>
+									<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" />
+								<?php endif ?>
+								<div class="content">
+									<div class="info">
+										<h4>
+											<a href="<?= BASE_PATH ?>/profile/<?= $reply['author_id'] ?>">
+												<?= $reply['author_first_name'] ?> <?= $reply['author_last_name'] ?>
+											</a>
+										</h4>
+										<span class="post-time"><?= formatDate($message['post_time'], true) ?></span>
+									</div>
+									<?= $reply['content'] ?>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+						<?php endforeach ?>
+					</ul>
+				</div>
+			<?php endif ?>
 		</div>
 		<div class="clearfix"></div>
 	</div>
