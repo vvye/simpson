@@ -1,0 +1,27 @@
+.avatar {
+    float: left;
+    width: 8rem;
+    margin: 0 1rem 1rem 0;
+    border: 1px solid #aaa;
+}
+
+.message {
+    padding: 1rem 3rem 2rem 1rem;
+}
+
+.message .content {
+    padding-left: 9rem;
+}
+
+.message .info {
+    margin-bottom: 0.5rem;
+}
+
+.message h3 {
+    display: inline-block;
+}
+
+.message .post-time {
+    color: #888;
+}
+

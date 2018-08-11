@@ -1,5 +1,8 @@
 <?php
 
+	require_once __DIR__ . '/../config/avatars.php';
+
+
 	function hasAvatar($userId)
 	{
 		return file_exists(__DIR__ . '/../../img/avatars/' . $userId . '.png');
@@ -49,7 +52,7 @@
 				break;
 			}
 
-			$avatar = resizeImage($avatar, 150);
+			$avatar = resizeImage($avatar, AVATAR_MAX_DIMENSIONS);
 
 			imagepng($avatar, __DIR__ . '/../../img/avatars/' . $userId . '.png');
 
