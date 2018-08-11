@@ -3,6 +3,7 @@ const messageForm = document.getElementById('message-form');
 const postMessageButton = document.getElementById('post-message');
 const addAddresseeCheckbox = document.getElementById('add-addressee');
 const addresseeForm = document.getElementById('addressee-form');
+const successAlert = document.getElementById('message-post-success');
 
 writeMessageButton.onclick = function() {
     if (messageForm.style.display === 'none') {
@@ -10,6 +11,7 @@ writeMessageButton.onclick = function() {
         this.innerHTML = 'Hide editor';
         this.classList.remove('primary');
         postMessageButton.classList.add('primary');
+        successAlert.parentNode.removeChild(successAlert);
     } else {
         messageForm.style.display = 'none';
         this.innerHTML = 'Write a message';

@@ -27,7 +27,7 @@
 				<?php endif ?>
 			</div>
 			<?php if ($newId !== null): ?>
-				<div class="alert success">
+				<div id="message-post-success" class="alert success">
 					Your message has been posted!
 				</div>
 			<?php endif ?>
