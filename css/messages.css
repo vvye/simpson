@@ -6,7 +6,8 @@
 }
 
 .message {
-    padding: 1rem 3rem 2rem 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem 4rem 2rem 1rem;
 }
 
 .message .content {
@@ -25,3 +26,34 @@
     color: #888;
 }
 
+.message .replies {
+    margin-top: 2rem;
+}
+
+.message .replies ul {
+    margin-top: 1rem;
+    list-style-type: none;
+}
+
+.reply {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 1.5rem;
+}
+
+.reply:last-child {
+    border-bottom: none;
+}
+
+.reply .avatar {
+    width: 5rem;
+}
+
+.reply .content {
+    padding-left: 6rem;
+    font-size: 0.75rem;
+}
+
+.reply h4 {
+    display: inline-block;
+}
