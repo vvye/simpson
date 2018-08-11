@@ -120,7 +120,7 @@ p {
     padding: 2rem 1rem;
 }
 
-.message {
+.alert {
     margin-bottom: 1rem;
     border: 1px solid;
     border-left-width: 6px;
@@ -129,11 +129,11 @@ p {
     color: #18f;
 }
 
-.message.error {
+.alert.error {
     color: #f31;
 }
 
-.message.success {
+.alert.success {
     color: #4a2;
 }
 

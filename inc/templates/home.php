@@ -12,7 +12,7 @@
 					<button type="submit">Log in</button>
 				</form>
 				<?php if ($loginError): ?>
-					<div class="error message">
+					<div class="alert error">
 						That didn't work.
 					</div>
 				<?php endif ?>
@@ -65,11 +65,11 @@
 								<tr>
 									<td colspan="2">
 										<?php if (empty($registrationErrorMessages)): ?>
-											<div class="message success">
+											<div class="alert success">
 												Welcome to <em>simpson</em>! You can log in now.
 											</div>
 										<?php else: ?>
-											<div class="message error">
+											<div class="alert error">
 												<?= join('<br />', $registrationErrorMessages) ?>
 											</div>
 										<?php endif ?>
