@@ -1,7 +1,3 @@
-<?php if ($isOwnProfile): ?>
-	<div><a class="button" href="<?= BASE_PATH ?>/edit-profile?token=<?= $token ?>">Edit profile</a></div>
-<?php endif ?>
-
 <?php if ($hasAvatar): ?>
 	<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/<?= $userId ?>.png" alt="Avatar" />
 <?php else: ?>
@@ -23,5 +19,10 @@
 
 <?php if ($bio !== ''): ?>
 	<p><?= $bio ?></p>
+<?php endif ?>
+
+<?php if ($isOwnProfile): ?>
+	<hr />
+	<div><a class="button" href="<?= BASE_PATH ?>/edit-profile?token=<?= $token ?>">Edit profile</a></div>
 <?php endif ?>
 
