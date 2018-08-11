@@ -48,7 +48,6 @@
 
 			$newId = postMessage($_SESSION['userId'], $content, $addresseeId);
 
-			var_dump($newId);
 		}
 
 	} while (false);

@@ -23,11 +23,16 @@
 				</div>
 				<?php endif ?>
 			</div>
+			<?php if ($newId !== null): ?>
+			<div class="alert success">
+				Your message has been posted!
+			</div>
+			<?php endif ?>
 		</div>
 	</form>
 
 	<?php foreach ($messages as $message): ?>
-		<div class="message panel">
+		<div class="message panel<?= $message['id'] === $newId ? ' newly-posted' : '' ?>">
 			<?php if ($message['authorHasAvatar']): ?>
 				<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/<?= $message['author_id'] ?>.png" />
 			<?php else: ?>

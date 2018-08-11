@@ -10,6 +10,10 @@
     padding: 1rem 4rem 2rem 1rem;
 }
 
+.message.newly-posted {
+    border: 3px solid #4a2;
+}
+
 .message .content {
     padding-left: 9rem;
 }
