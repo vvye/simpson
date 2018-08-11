@@ -1,6 +1,29 @@
 <div class="narrow">
-	<form>
-		<a class="primary button">Write a message</a>
+
+	<?php if (empty($messages)): ?>
+		<em class="empty">There aren't any messages yet.</em>
+	<?php endif ?>
+
+	<form action="<?= BASE_PATH ?>/messages" method="post">
+		<div class="message editor panel">
+			<a class="primary button" id="write-message">Write a message</a>
+			<div id="message-form" <?= $error ? '' : 'class="hidden"' ?>>
+				<textarea id="content" name="content" placeholder="Write a message&hellip;"></textarea>
+				<label class="checkbox">
+					<input type="checkbox" id="add-addressee" name="add-addressee" />
+					<span class="label">Address another user (the message will still be public)</span>
+				</label>
+				<div id="addressee-form" class="hidden">
+					<input type="text" id="addressee" name="addressee" placeholder="First and last name, or user ID if name isn't unique" />
+				</div>
+				<input type="submit" name="submit" id="post-message" class="button" value="Post message" />
+				<?php if ($error): ?>
+				<div class="alert error">
+					<?= join('<br />', $errorMessages) ?>
+				</div>
+				<?php endif ?>
+			</div>
+		</div>
 	</form>
 
 	<?php foreach ($messages as $message): ?>
@@ -27,7 +50,7 @@
 					<span class="post-time"><?= formatDate($message['post_time'], true) ?></span>
 				</div>
 				<?= $message['content'] ?>
-				<?php if (count($message['replies']) > 0): ?>
+				<?php if (!empty($message['replies'])): ?>
 					<div class="replies">
 						<h3>
 							<?= count($message['replies']) ?> <?= count($message['replies']) === 1 ? 'reply' : 'replies' ?>
@@ -62,4 +85,7 @@
 			<div class="clearfix"></div>
 		</div>
 	<?php endforeach ?>
+
 </div>
+
+<script type="text/javascript" src="<?= BASE_PATH ?>/js/messages.js"></script>

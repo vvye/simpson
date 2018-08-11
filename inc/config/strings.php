@@ -44,3 +44,6 @@
 
 	define('MSG_EDIT_PROFILE_SUCCESS',
 		'Changes saved!');
+
+	define('MSG_NO_MESSAGE_CONTENT',
+		'Enter a message.');

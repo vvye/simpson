@@ -55,3 +55,33 @@
 
 		return (is_int($numUsers) && $numUsers === 1);
 	}
+
+
+	function getNumUsersByName($name)
+	{
+		global $database;
+
+		return (int)($database->query('
+			SELECT COUNT(`id`)
+			FROM `users`
+			WHERE CONCAT(first_name, \' \', last_name) = ' . $database->quote($name)
+		)->fetchAll()[0][0]);
+	}
+
+
+	function getUserIdByName($name)
+	{
+		global $database;
+
+		$users = $database->query('
+			SELECT `id`
+			FROM `users`
+			WHERE CONCAT(first_name, \' \', last_name) = ' . $database->quote($name)
+		)->fetchAll();
+
+		if (empty($users))
+		{
+			return null;
+		}
+		return $users[0]['id'];
+	}

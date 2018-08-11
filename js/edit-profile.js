@@ -1,6 +1,6 @@
-let changeAvatarCheckbox = document.getElementById('change-avatar');
-let deleteAvatarCheckbox = document.getElementById('delete-avatar');
-let avatarFileInput = document.getElementById('edit-avatar');
+const changeAvatarCheckbox = document.getElementById('change-avatar');
+const deleteAvatarCheckbox = document.getElementById('delete-avatar');
+const avatarFileInput = document.getElementById('edit-avatar');
 
 changeAvatarCheckbox.onchange = function () {
     if (this.checked) {

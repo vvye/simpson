@@ -18,7 +18,7 @@
 				<td><label for="email">E-Mail address:</label></td>
 				<td>
 					<input type="email" id="email" name="email" value="<?= $email ?>" />
-					<label class="checkbox">
+					<label class="checkbox spaced">
 						<input type="checkbox" id="email-public" name="email-public"
 							<?= $emailPublic ? 'checked="checked"' : '' ?> />
 						<span class="label">Show my e-mail address in public</span>

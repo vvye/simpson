@@ -72,3 +72,19 @@
 
 		return $replies;
 	}
+
+
+	function postMessage($userId, $content, $addresseeId)
+	{
+		global $database;
+
+		$database->insert('messages', [
+			'id'        => null,
+			'user'      => $userId,
+			'content'   => htmlspecialchars($content),
+			'addressee' => $addresseeId,
+			'post_time' => time()
+		]);
+
+		return $database->id();
+	}
