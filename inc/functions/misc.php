@@ -3,27 +3,27 @@
 	require_once __DIR__ . '/../config/misc.php';
 
 
-	function renderMessage($msg)
+	function renderAlert($msg)
 	{
-		renderTemplate('message', [
+		renderTemplate('alert', [
 			'type'    => '',
 			'message' => $msg
 		]);
 	}
 
 
-	function renderSuccessMessage($msg)
+	function renderSuccessAlert($msg)
 	{
-		renderTemplate('message', [
+		renderTemplate('alert', [
 			'type'    => 'success',
 			'message' => $msg
 		]);
 	}
 
 
-	function renderErrorMessage($msg)
+	function renderErrorAlert($msg)
 	{
-		renderTemplate('message', [
+		renderTemplate('alert', [
 			'type'    => 'error',
 			'message' => $msg
 		]);

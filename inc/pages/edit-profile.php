@@ -24,7 +24,7 @@
 
 		if (!isset($_GET['token']) || !isCsrfTokenCorrect($_GET['token']))
 		{
-			renderErrorMessage(MSG_BAD_TOKEN);
+			renderErrorAlert(MSG_BAD_TOKEN);
 			break;
 		}
 		$token = $_GET['token'];
@@ -56,28 +56,28 @@
 
 			if ($email === '')
 			{
-				renderErrorMessage(MSG_EMAIL_MISSING);
+				renderErrorAlert(MSG_EMAIL_MISSING);
 				$error = true;
 			}
 
 			if (trim(getFieldValue('first-name')) === '')
 			{
-				renderErrorMessage(MSG_FIRST_NAME_MISSING);
+				renderErrorAlert(MSG_FIRST_NAME_MISSING);
 				$error = true;
 			}
 			else if (!preg_match('/^' . VALID_USERNAME_REGEX . '$/', getFieldValue('first-name')))
 			{
-				renderErrorMessage(MSG_INVALID_FIRST_NAME);
+				renderErrorAlert(MSG_INVALID_FIRST_NAME);
 				$error = true;
 			}
 			if (trim(getFieldValue('last-name')) === '')
 			{
-				renderErrorMessage(MSG_LAST_NAME_MISSING);
+				renderErrorAlert(MSG_LAST_NAME_MISSING);
 				$error = true;
 			}
 			else if (!preg_match('/^' . VALID_USERNAME_REGEX . '$/', getFieldValue('last-name')))
 			{
-				renderErrorMessage(MSG_INVALID_LAST_NAME);
+				renderErrorAlert(MSG_INVALID_LAST_NAME);
 				$error = true;
 			}
 
@@ -85,7 +85,7 @@
 			$changeEmail = (strtolower($oldEmail) !== strtolower($email));
 			if ($changeEmail && emailExists($email))
 			{
-				renderErrorMessage(MSG_EMAIL_TAKEN);
+				renderErrorAlert(MSG_EMAIL_TAKEN);
 				$error = true;
 			}
 
@@ -94,17 +94,17 @@
 			{
 				if (!isPasswordCorrect($userId, $oldPassword))
 				{
-					renderErrorMessage(MSG_WRONG_PASSWORD);
+					renderErrorAlert(MSG_WRONG_PASSWORD);
 					$error = true;
 				}
 				if (strlen($newPassword) < MIN_PASSWORD_LENGTH)
 				{
-					renderErrorMessage(MSG_PASSWORD_TOO_SHORT);
+					renderErrorAlert(MSG_PASSWORD_TOO_SHORT);
 					$error = true;
 				}
 				if ($newPassword !== $newPasswordConfirm)
 				{
-					renderErrorMessage(MSG_PASSWORDS_DONT_MATCH);
+					renderErrorAlert(MSG_PASSWORDS_DONT_MATCH);
 					$error = true;
 				}
 			}
@@ -118,7 +118,7 @@
 				{
 					foreach ($errorMessages as $errorMessage)
 					{
-						renderErrorMessage($errorMessage);
+						renderErrorAlert($errorMessage);
 					}
 					$error = true;
 				}
@@ -146,7 +146,7 @@
 					updatePassword($userId, $newPassword);
 				}
 
-				renderSuccessMessage(MSG_EDIT_PROFILE_SUCCESS);
+				renderSuccessAlert(MSG_EDIT_PROFILE_SUCCESS);
 			}
 		}
 
