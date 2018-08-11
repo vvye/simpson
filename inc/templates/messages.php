@@ -8,25 +8,28 @@
 		<div class="message editor panel">
 			<a class="primary button" id="write-message">Write a message</a>
 			<div id="message-form" <?= $error ? '' : 'class="hidden"' ?>>
-				<textarea id="content" name="content" placeholder="Write a message&hellip;"></textarea>
+				<textarea id="content" name="content" placeholder="Write a message&hellip;"><?= $content ?></textarea>
 				<label class="checkbox">
-					<input type="checkbox" id="add-addressee" name="add-addressee" />
+					<input type="checkbox" id="add-addressee"
+					       name="add-addressee" <?= $addAddressee ? 'checked="checked"' : '' ?> />
 					<span class="label">Address another user (the message will still be public)</span>
 				</label>
-				<div id="addressee-form" class="hidden">
-					<input type="text" id="addressee" name="addressee" placeholder="First and last name, or user ID if name isn't unique" />
+				<div id="addressee-form" <?= $addAddressee ? '' : 'class="hidden"' ?>>
+					<input type="text" id="addressee" name="addressee"
+					       placeholder="First and last name, or user ID if name isn't unique"
+					       value="<?= $addressee ?>" />
 				</div>
 				<input type="submit" name="submit" id="post-message" class="button" value="Post message" />
 				<?php if ($error): ?>
-				<div class="alert error">
-					<?= join('<br />', $errorMessages) ?>
-				</div>
+					<div class="alert error">
+						<?= join('<br />', $errorMessages) ?>
+					</div>
 				<?php endif ?>
 			</div>
 			<?php if ($newId !== null): ?>
-			<div class="alert success">
-				Your message has been posted!
-			</div>
+				<div class="alert success">
+					Your message has been posted!
+				</div>
 			<?php endif ?>
 		</div>
 	</form>

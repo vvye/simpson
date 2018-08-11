@@ -47,6 +47,9 @@
 			}
 
 			$newId = postMessage($_SESSION['userId'], $content, $addresseeId);
+			$content = '';
+			$addAddressee = false;
+			$addressee = '';
 
 		}
 
