@@ -26,7 +26,7 @@
 			return false;
 		}
 
-		$_SESSION['userId'] = $user['id'];
+		$_SESSION['userId'] = (int)$user['id'];
 		$_SESSION['firstName'] = $user['first_name'];
 		$_SESSION['lastName'] = $user['last_name'];
 		$_SESSION['loggedIn'] = true;

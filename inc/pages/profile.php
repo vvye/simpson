@@ -8,7 +8,6 @@
 
 	do
 	{
-
 		if ($currentSubpageName === DEFAULT_SUBPAGE_NAME || !is_numeric($currentSubpageName))
 		{
 			$userId = $_SESSION['userId'];
@@ -17,7 +16,7 @@
 		else
 		{
 			$userId = (int)$currentSubpageName;
-			$isOwnProfile = false;
+			$isOwnProfile = $userId === $_SESSION['userId'];
 		}
 
 		$user = getUser($userId);

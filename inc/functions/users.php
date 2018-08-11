@@ -43,3 +43,15 @@
 			'id' => $userId
 		]);
 	}
+
+
+	function userExists($userId)
+	{
+		global $database;
+
+		$numUsers = $database->count('users', [
+			'id' => $userId
+		]);
+
+		return (is_int($numUsers) && $numUsers === 1);
+	}

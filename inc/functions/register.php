@@ -53,18 +53,6 @@
 	}
 
 
-	function usernameExists($username)
-	{
-		global $database;
-
-		$numUsers = $database->count('users', [
-			'name' => $username
-		]);
-
-		return (is_int($numUsers) && $numUsers > 0);
-	}
-
-
 	function startRegistration($email, $firstName, $lastName, $passwordHash)
 	{
 		global $database;
