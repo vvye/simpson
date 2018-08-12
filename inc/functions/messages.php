@@ -41,7 +41,7 @@
 				'parent'  => null,
 				'deleted' => 0
 			],
-			'ORDER' => ['post_time' => 'DESC', 'id' => 'ASC'],
+			'ORDER' => ['post_time' => 'DESC', 'id' => 'DESC'],
 			'LIMIT' => [($page - 1) * MESSAGES_PER_PAGE, MESSAGES_PER_PAGE]
 		]);
 

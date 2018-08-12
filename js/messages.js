@@ -4,8 +4,9 @@ const postMessageButton = document.getElementById('post-message');
 const addAddresseeCheckbox = document.getElementById('add-addressee');
 const addresseeForm = document.getElementById('addressee-form');
 const successAlert = document.getElementById('message-post-success');
+const replyButtons = document.querySelectorAll('.reply-form .button');
 
-writeMessageButton.onclick = function() {
+writeMessageButton.onclick = function () {
     if (messageForm.style.display === 'none') {
         messageForm.style.display = 'block';
         this.innerHTML = 'Hide editor';
@@ -20,11 +21,25 @@ writeMessageButton.onclick = function() {
     }
 };
 
-addAddresseeCheckbox.onchange = function() {
+addAddresseeCheckbox.onchange = function () {
     if (this.checked) {
         addresseeForm.style.display = 'block';
     } else {
         addresseeForm.style.display = 'none';
     }
 };
+
+for (let button of replyButtons) {
+    button.onclick = function () {
+        let messageId = this.getAttribute('data-message');
+        let replyForm = document.querySelectorAll('form[data-message="' + messageId + '"]')[0];
+        if (replyForm.style.display === 'none') {
+            replyForm.style.display = 'block';
+            this.innerHTML = 'Hide editor';
+        } else {
+            replyForm.style.display = 'none';
+            this.innerHTML = 'Reply';
+        }
+    }
+}
 

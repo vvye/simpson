@@ -58,7 +58,9 @@
 					<?php endif ?>
 					<span class="post-time"><?= renderDate($message['post_time'], true) ?></span>
 				</div>
-				<?= $message['content'] ?>
+				<div class="text">
+					<?= $message['content'] ?>
+				</div>
 				<?php if (!empty($message['replies'])): ?>
 					<div class="replies">
 						<h3>
@@ -90,6 +92,13 @@
 						</ul>
 					</div>
 				<?php endif ?>
+				<div class="reply-form editor">
+					<a class="small button" data-message="<?= $message['id'] ?>">Reply</a>
+					<form data-message="<?= $message['id'] ?>" class="hidden">
+						<textarea placeholder="Write a reply&hellip;"></textarea>
+						<input class="small button" type="submit" name="submit-reply" value="Post reply">
+					</form>
+				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
