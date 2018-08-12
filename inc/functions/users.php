@@ -13,8 +13,6 @@
 			'bio',
 			'registration_time',
 			'last_login_time',
-			'admin',
-			'banned'
 		], [
 			'id'    => $userId,
 			'LIMIT' => 1

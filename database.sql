@@ -9,22 +9,14 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 
-CREATE TABLE `addressings` (
-  `message` int(11) NOT NULL,
-  `addressee` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
+  `addressee` int(11) DEFAULT NULL,
+  `parent` int(11) DEFAULT NULL,
   `post_time` int(11) NOT NULL,
   `content` longtext NOT NULL,
   `deleted` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `replies` (
-  `message` int(11) NOT NULL,
-  `reply` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
@@ -41,9 +33,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-ALTER TABLE `addressings`
-  ADD UNIQUE KEY `message` (`message`);
-
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
@@ -53,7 +42,7 @@ ALTER TABLE `users`
 
 
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;

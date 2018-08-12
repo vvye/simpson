@@ -35,7 +35,8 @@
 	</form>
 
 	<?php foreach ($messages as $message): ?>
-		<div class="message panel<?= $message['id'] === $newId ? ' newly-posted' : '' ?>">
+		<div id="message-<?= $message['id'] ?>"
+		     class="message panel<?= $message['id'] === $newId ? ' newly-posted' : '' ?>">
 			<?php if ($message['authorHasAvatar']): ?>
 				<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/<?= $message['author_id'] ?>.png" />
 			<?php else: ?>
@@ -79,7 +80,7 @@
 													<?= $reply['author_first_name'] ?> <?= $reply['author_last_name'] ?>
 												</a>
 											</h4>
-											<span class="post-time"><?= formatDate($message['post_time'], true) ?></span>
+											<span class="post-time"><?= formatDate($reply['post_time'], true) ?></span>
 										</div>
 										<?= $reply['content'] ?>
 									</div>

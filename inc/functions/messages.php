@@ -22,6 +22,10 @@
 			'addressee.first_name(addressee_first_name)',
 			'addressee.last_name(addressee_last_name)'
 		], [
+			'AND'   => [
+				'parent'  => null,
+				'deleted' => 0
+			],
 			'ORDER' => ['post_time' => 'DESC', 'id' => 'ASC']
 		]);
 
@@ -54,18 +58,18 @@
 	{
 		global $database;
 
-		$replies = $database->select('replies', [
-			'[>]users(author)' => ['user' => 'id']
+		$replies = $database->select('messages', [
+			'[>]users(author)' => ['messages.user' => 'id']
 		], [
-			'replies.id',
-			'replies.post_time',
-			'replies.content',
+			'messages.id',
+			'messages.post_time',
+			'messages.content',
 			'author.id(author_id)',
 			'author.first_name(author_first_name)',
 			'author.last_name(author_last_name)'
 		], [
-			'message' => $messageId,
-			'ORDER'   => ['post_time' => 'ASC', 'id' => 'ASC']
+			'parent' => $messageId,
+			'ORDER'  => ['post_time' => 'ASC', 'id' => 'ASC']
 		]);
 
 		$replies = array_map('processReply', $replies);
@@ -74,15 +78,16 @@
 	}
 
 
-	function postMessage($userId, $content, $addresseeId)
+	function postMessage($content, $addresseeId)
 	{
 		global $database;
 
 		$database->insert('messages', [
 			'id'        => null,
-			'user'      => $userId,
-			'content'   => htmlspecialchars($content),
+			'user'      => $_SESSION['userId'],
 			'addressee' => $addresseeId,
+			'parent'    => null,
+			'content'   => htmlspecialchars($content),
 			'post_time' => time()
 		]);
 
