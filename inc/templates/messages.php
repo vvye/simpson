@@ -7,8 +7,9 @@
 	<form action="<?= BASE_PATH ?>/messages" method="post">
 		<div class="message editor panel">
 			<a class="primary button" id="write-message">Write a message</a>
-			<div id="message-form" <?= $error ? '' : 'class="hidden"' ?>>
-				<textarea id="content" name="content" placeholder="Write a message&hellip;"><?= $content ?></textarea>
+			<div id="message-form" <?= $messageError ? '' : 'class="hidden"' ?>>
+				<textarea id="content" name="content"
+				          placeholder="Write a message&hellip;"><?= $messageContent ?></textarea>
 				<label class="checkbox">
 					<input type="checkbox" id="add-addressee"
 					       name="add-addressee" <?= $addAddressee ? 'checked="checked"' : '' ?> />
@@ -19,14 +20,14 @@
 					       placeholder="First and last name, or user ID if name isn't unique"
 					       value="<?= $addressee ?>" />
 				</div>
-				<input type="submit" name="submit" id="post-message" class="button" value="Post message" />
-				<?php if ($error): ?>
+				<input type="submit" name="post-message" id="post-message" class="button" value="Post message" />
+				<?php if ($messageError): ?>
 					<div class="alert error">
-						<?= join('<br />', $errorMessages) ?>
+						<?= join('<br />', $messageErrors) ?>
 					</div>
 				<?php endif ?>
 			</div>
-			<?php if ($newId !== null): ?>
+			<?php if ($newMessageId !== null): ?>
 				<div id="message-post-success" class="alert success">
 					Your message has been posted!
 				</div>
@@ -36,7 +37,7 @@
 
 	<?php foreach ($messages as $message): ?>
 		<div id="message-<?= $message['id'] ?>"
-		     class="message panel<?= $message['id'] === $newId ? ' newly-posted' : '' ?>">
+		     class="message panel<?= $message['id'] === $newMessageId ? ' newly-posted' : '' ?>">
 			<?php if ($message['authorHasAvatar']): ?>
 				<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/<?= $message['author_id'] ?>.png" />
 			<?php else: ?>
@@ -68,7 +69,7 @@
 						</h3>
 						<ul>
 							<?php foreach ($message['replies'] as $reply): ?>
-								<li class="reply">
+								<li class="reply<?= $reply['id'] === $newReplyId ? ' newly-posted' : '' ?>">
 									<?php if ($reply['authorHasAvatar']): ?>
 										<img class="avatar"
 										     src="<?= BASE_PATH ?>/img/avatars/<?= $reply['author_id'] ?>.png" />
@@ -92,12 +93,25 @@
 						</ul>
 					</div>
 				<?php endif ?>
-				<div class="reply-form editor">
+				<div id="message-<?= $message['id'] ?>-reply-form" class="reply-form editor">
 					<a class="small button" data-message="<?= $message['id'] ?>">Reply</a>
-					<form data-message="<?= $message['id'] ?>" class="hidden">
-						<textarea placeholder="Write a reply&hellip;"></textarea>
-						<input class="small button" type="submit" name="submit-reply" value="Post reply">
+					<form action="<?= BASE_PATH ?>/messages#message-<?= $message['id'] ?>-reply-form"
+					      data-message="<?= $message['id'] ?>" method="post"
+						<?= $messageId == $message['id'] && $replyError ? '' : 'class="hidden"' ?>>
+						<input type="hidden" name="message-id" value="<?= $message['id'] ?>" />
+						<textarea name="reply-content" placeholder="Write a reply&hellip;"></textarea>
+						<input class="small button" type="submit" name="post-reply" value="Post reply">
+						<?php if ($messageId == $message['id'] && $replyError): ?>
+							<div class="alert error">
+								<?= join('<br />', $replyErrors) ?>
+							</div>
+						<?php endif ?>
 					</form>
+					<?php if ($messageId == $message['id'] && $newReplyId !== null): ?>
+						<div id="reply-post-success" class="alert success">
+							Your reply has been posted!
+						</div>
+					<?php endif ?>
 				</div>
 			</div>
 			<div class="clearfix"></div>

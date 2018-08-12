@@ -33,6 +33,9 @@ for (let button of replyButtons) {
     button.onclick = function () {
         let messageId = this.getAttribute('data-message');
         let replyForm = document.querySelectorAll('form[data-message="' + messageId + '"]')[0];
+        if (!replyForm) {
+            return;
+        }
         if (replyForm.style.display === 'none') {
             replyForm.style.display = 'block';
             this.innerHTML = 'Hide editor';

@@ -109,3 +109,19 @@
 
 		return $database->id();
 	}
+
+	function postReply($content, $parentId)
+	{
+		global $database;
+
+		$database->insert('messages', [
+			'id'        => null,
+			'user'      => $_SESSION['userId'],
+			'addressee' => null,
+			'parent'    => $parentId,
+			'content'   => htmlspecialchars($content),
+			'post_time' => time()
+		]);
+
+		return $database->id();
+	}

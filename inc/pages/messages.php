@@ -9,27 +9,22 @@
 
 	do
 	{
+		$newMessageId = null;
+		$newReplyId = null;
+		$parentId = null;
+		$messageErrors = [];
+		$replyErrors = [];
 
-		$newId = null;
-		$error = false;
-		$errorMessages = [];
-
-		if (!isset($_POST['submit']))
+		if (isset($_POST['post-message']))
 		{
-			$content = '';
-			$addAddressee = false;
-			$addressee = '';
-		}
-		else
-		{
-			$content = trim(getFieldValue('content'));
+			$messageContent = trim(getFieldValue('content'));
+			$replyContent = '';
 			$addAddressee = getFieldValue('add-addressee');
 			$addressee = trim(getFieldValue('addressee'));
 
-			if (trim($content) === '')
+			if (trim($messageContent) === '')
 			{
-				$error = true;
-				$errorMessages[] = MSG_NO_MESSAGE_CONTENT;
+				$messageErrors[] = MSG_NO_MESSAGE_CONTENT;
 				break;
 			}
 
@@ -49,11 +44,35 @@
 				$addresseeId = null;
 			}
 
-			$newId = postMessage($content, $addresseeId);
-			$content = '';
+			$newMessageId = postMessage($messageContent, $addresseeId);
+			$messageContent = '';
 			$addAddressee = false;
 			$addressee = '';
 
+		}
+		else if (isset($_POST['post-reply']))
+		{
+			$messageContent = '';
+			$replyContent = trim(getFieldValue('reply-content'));
+			$addAddressee = false;
+			$addressee = '';
+
+			$parentId = getFieldValue('message-id');
+
+			if (trim($replyContent) === '')
+			{
+				$replyErrors[] = MSG_NO_MESSAGE_CONTENT;
+				break;
+			}
+
+			$newReplyId = postReply($replyContent, $parentId);
+		}
+		else
+		{
+			$messageContent = '';
+			$replyContent = '';
+			$addAddressee = false;
+			$addressee = '';
 		}
 
 	} while (false);
@@ -66,13 +85,18 @@
 	$messages = getMessages($page);
 
 	renderTemplate('messages', [
-		'messages'      => $messages,
-		'content'       => $content,
-		'addAddressee'  => $addAddressee,
-		'addressee'     => $addressee,
-		'error'         => $error,
-		'errorMessages' => $errorMessages,
-		'newId'         => $newId,
+		'messages'       => $messages,
+		'messageContent' => $messageContent,
+		'addAddressee'   => $addAddressee,
+		'addressee'      => $addressee,
+		'messageError'   => !empty($messageErrors),
+		'messageErrors'  => $messageErrors,
+		'newMessageId'   => $newMessageId,
+		'replyContent'   => $replyContent,
+		'replyError'     => !empty($replyErrors),
+		'replyErrors'    => $replyErrors,
+		'messageId'      => $parentId,
+		'newReplyId'     => $newReplyId,
 	]);
 
 	renderPagination(BASE_PATH . '/messages', $page, $numPages);

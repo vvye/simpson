@@ -35,7 +35,7 @@
 }
 
 .message .replies {
-    margin-top: 2rem;
+    margin: 2rem 3rem 0 0;
 }
 
 .message .replies ul {
@@ -44,13 +44,16 @@
 }
 
 .reply {
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #aaa;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .reply:last-child {
     border-bottom: none;
+}
+
+.reply.newly-posted {
+    border: 0.5rem solid transparent;
+    box-shadow: 0 0 0 3px #4a2;
 }
 
 .reply .avatar {
