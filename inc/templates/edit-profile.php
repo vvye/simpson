@@ -87,7 +87,7 @@
 			</tr>
 		</table>
 	</fieldset>
-	<input type="submit" name="submit" class="large primary button" value="Edit profile">
+	<input type="submit" name="submit" class="primary button" value="Edit profile">
 </form>
 
 <script type="text/javascript" src="<?= BASE_PATH ?>/js/file-input.js"></script>
