@@ -12,8 +12,8 @@
 	<?php endif ?>
 
 	<p>
-		Registered: <?= formatDate($registrationTime, true) ?><br />
-		Last login: <?= formatDate($lastLoginTime, true) ?>
+		Registered: <?= renderDate($registrationTime, true) ?><br />
+		Last login: <?= renderDate($lastLoginTime, true) ?>
 	</p>
 
 	<div class="clearfix"></div>

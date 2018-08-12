@@ -30,7 +30,7 @@
 	}
 
 
-	function formatDate($time, $includingRelativeTime = false)
+	function renderDate($time, $includingRelativeTime = false)
 	{
 		$date = date(DEFAULT_DATE_FORMAT, $time);
 
@@ -40,7 +40,7 @@
 		}
 
 		$relativeTime = getRelativeTime($time);
-		return $date . ' (' . $relativeTime . ')';
+		return '<span class="relative-time" title="' . $date . '">' . $relativeTime . '</span>';
 	}
 
 

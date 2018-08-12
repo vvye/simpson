@@ -172,6 +172,10 @@ footer p {
     margin-bottom: 1rem;
 }
 
+.relative-time {
+    border-bottom: 1px dotted;
+}
+
 .pagination {
     margin: 1rem 0 2rem;
     list-style-type: none;

@@ -56,7 +56,7 @@
 							</a>
 						</h3>
 					<?php endif ?>
-					<span class="post-time"><?= formatDate($message['post_time'], true) ?></span>
+					<span class="post-time"><?= renderDate($message['post_time'], true) ?></span>
 				</div>
 				<?= $message['content'] ?>
 				<?php if (!empty($message['replies'])): ?>
@@ -80,7 +80,7 @@
 													<?= $reply['author_first_name'] ?> <?= $reply['author_last_name'] ?>
 												</a>
 											</h4>
-											<span class="post-time"><?= formatDate($reply['post_time'], true) ?></span>
+											<span class="post-time"><?= renderDate($reply['post_time'], true) ?></span>
 										</div>
 										<?= $reply['content'] ?>
 									</div>
