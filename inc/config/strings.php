@@ -47,3 +47,15 @@
 
 	define('MSG_NO_MESSAGE_CONTENT',
 		'Enter a message.');
+
+	define('MSG_MESSAGE_DOESNT_EXIST',
+		'That message doesn\'t exist.');
+
+	define('MSG_NOT_YOUR_MESSAGE',
+		'That message isn\'t yours.');
+
+	define('MSG_MESSAGE_DELETE_SUCCESS',
+		'The message has been deleted.');
+
+	define('MSG_MESSAGE_DELETE_FAILURE',
+		'The message couldn\'t be deleted.');

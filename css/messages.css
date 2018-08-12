@@ -38,6 +38,11 @@
     margin: 2rem 3rem 0 0;
 }
 
+.message .replies h3 {
+    margin-right: 1rem;
+    font-weight: normal;
+}
+
 .message .replies ul {
     margin-top: 1rem;
     list-style-type: none;
@@ -62,6 +67,10 @@
 
 .reply .info {
     margin-bottom: 0;
+}
+
+.reply .post-time {
+    margin-right: 1rem;
 }
 
 .reply .content {

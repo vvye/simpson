@@ -51,6 +51,39 @@
 	}
 
 
+	function getMessage($id)
+	{
+		global $database;
+
+		$messages = $database->select('messages', [
+			'[>]users(author)'    => ['user' => 'id'],
+			'[>]users(addressee)' => ['addressee' => 'id']
+		], [
+			'messages.id',
+			'messages.post_time',
+			'messages.content',
+			'author.id(author_id)',
+			'author.first_name(author_first_name)',
+			'author.last_name(author_last_name)',
+			'addressee.id(addressee_id)',
+			'addressee.first_name(addressee_first_name)',
+			'addressee.last_name(addressee_last_name)'
+		], [
+			'AND' => [
+				'messages.id' => $id,
+				'deleted'     => 0
+			]
+		]);
+
+		if (count($messages) !== 1)
+		{
+			return null;
+		}
+
+		return processMessage($messages[0]);
+	}
+
+
 	function processMessage($message)
 	{
 		$message = processReply($message);
@@ -61,12 +94,13 @@
 	}
 
 
-	function processReply($reply)
+	function processReply($message)
 	{
-		$reply['authorHasAvatar'] = hasAvatar($reply['author_id']);
-		$reply['content'] = nl2br($reply['content']);
+		$message['authorHasAvatar'] = hasAvatar($message['author_id']);
+		$message['content'] = nl2br($message['content']);
+		$message['isOwnMessage'] = (int)$message['author_id'] === $_SESSION['userId'];
 
-		return $reply;
+		return $message;
 	}
 
 
@@ -84,8 +118,9 @@
 			'author.first_name(author_first_name)',
 			'author.last_name(author_last_name)'
 		], [
-			'parent' => $messageId,
-			'ORDER'  => ['post_time' => 'ASC', 'id' => 'ASC']
+			'parent'  => $messageId,
+			'deleted' => 0,
+			'ORDER'   => ['post_time' => 'ASC', 'id' => 'ASC']
 		]);
 
 		$replies = array_map('processReply', $replies);
@@ -110,6 +145,7 @@
 		return $database->id();
 	}
 
+
 	function postReply($content, $parentId)
 	{
 		global $database;
@@ -124,4 +160,16 @@
 		]);
 
 		return $database->id();
+	}
+
+
+	function deleteMessage($id)
+	{
+		global $database;
+
+		return $database->update('messages', [
+				'deleted' => 1
+			], [
+				'id' => $id
+			])->rowCount() === 1;
 	}

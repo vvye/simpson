@@ -35,5 +35,10 @@
 			'name'      => 'edit-profile',
 			'condition' => isLoggedIn(),
 			'inMenu'    => false,
+		],
+		'delete-message' => [
+			'name'      => 'delete-message',
+			'condition' => isLoggedIn(),
+			'inMenu'    => false,
 		]
 	]);

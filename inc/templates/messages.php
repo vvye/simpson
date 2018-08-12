@@ -67,8 +67,8 @@
 						<h3>
 							<?= count($message['replies']) ?> <?= count($message['replies']) === 1 ? 'reply' : 'replies' ?>
 						</h3>
-						<a class="small button reply-toggle">toggle</a>
-						<ul>
+						<a class="tiny subtle reply-toggle button">toggle</a>
+						<ul<?= count($message['replies']) > REPLIES_SHOWN ? ' class="hidden"' : '' ?>>
 							<?php foreach ($message['replies'] as $reply): ?>
 								<li class="reply<?= $reply['id'] === $newReplyId ? ' newly-posted' : '' ?>">
 									<?php if ($reply['authorHasAvatar']): ?>
@@ -85,6 +85,10 @@
 												</a>
 											</h4>
 											<span class="post-time"><?= renderDate($reply['post_time'], true) ?></span>
+											<?php if ($reply['isOwnMessage']): ?>
+											<a class="tiny subtle button"
+											   href="<?= BASE_PATH ?>/delete-message/<?= $reply['id'] ?>">Delete</a>
+											<?php endif ?>
 										</div>
 										<?= $reply['content'] ?>
 									</div>
@@ -95,20 +99,24 @@
 					</div>
 				<?php endif ?>
 				<div id="message-<?= $message['id'] ?>-reply-form" class="reply-form editor">
+					<?php if ($message['isOwnMessage']): ?>
+						<a class="small subtle button" href="<?= BASE_PATH ?>/delete-message/<?= $message['id'] ?>">
+							Delete</a>
+					<?php endif ?>
 					<a class="small button" data-message="<?= $message['id'] ?>">Reply</a>
 					<form action="<?= BASE_PATH ?>/messages#message-<?= $message['id'] ?>-reply-form"
 					      data-message="<?= $message['id'] ?>" method="post"
-						<?= $messageId == $message['id'] && $replyError ? '' : 'class="hidden"' ?>>
+						<?= $messageId === $message['id'] && $replyError ? '' : 'class="hidden"' ?>>
 						<input type="hidden" name="message-id" value="<?= $message['id'] ?>" />
 						<textarea name="reply-content" placeholder="Write a reply&hellip;"></textarea>
 						<input class="small button" type="submit" name="post-reply" value="Post reply">
-						<?php if ($messageId == $message['id'] && $replyError): ?>
+						<?php if ($messageId === $message['id'] && $replyError): ?>
 							<div class="alert error">
 								<?= join('<br />', $replyErrors) ?>
 							</div>
 						<?php endif ?>
 					</form>
-					<?php if ($messageId == $message['id'] && $newReplyId !== null): ?>
+					<?php if ($messageId === $message['id'] && $newReplyId !== null): ?>
 						<div id="reply-post-success" class="alert success">
 							Your reply has been posted!
 						</div>
