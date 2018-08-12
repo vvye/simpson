@@ -8,12 +8,23 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+
+CREATE TABLE `addressings` (
+  `message` int(11) NOT NULL,
+  `addressee` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
-  `addressee` int(11) DEFAULT NULL,
   `post_time` int(11) NOT NULL,
-  `content` longtext NOT NULL
+  `content` longtext NOT NULL,
+  `deleted` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `replies` (
+  `message` int(11) NOT NULL,
+  `reply` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
@@ -26,24 +37,26 @@ CREATE TABLE `users` (
   `bio` longtext NOT NULL,
   `registration_time` int(11) NOT NULL,
   `last_login_time` int(11) NOT NULL,
-  `admin` tinyint(4) NOT NULL DEFAULT '0',
-  `banned` tinyint(4) NOT NULL DEFAULT '0',
   `csrf_token` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `addressings`
+  ADD UNIQUE KEY `message` (`message`);
 
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
+  ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `id` (`id`);
 
+
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
