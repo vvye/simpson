@@ -5,6 +5,7 @@ const addAddresseeCheckbox = document.getElementById('add-addressee');
 const addresseeForm = document.getElementById('addressee-form');
 const successAlert = document.getElementById('message-post-success');
 const replyButtons = document.querySelectorAll('.reply-form .button');
+const replyToggleButtons = document.querySelectorAll('.reply-toggle');
 
 writeMessageButton.onclick = function () {
     if (messageForm.style.display === 'none') {
@@ -42,6 +43,17 @@ for (let button of replyButtons) {
         } else {
             replyForm.style.display = 'none';
             this.innerHTML = 'Reply';
+        }
+    }
+}
+
+for (let button of replyToggleButtons) {
+    button.onclick = function () {
+        let replyList = this.nextElementSibling;
+        if (replyList.style.display === 'none') {
+            replyList.style.display = 'block';
+        } else {
+            replyList.style.display = 'none';
         }
     }
 }

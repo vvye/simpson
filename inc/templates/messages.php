@@ -67,6 +67,7 @@
 						<h3>
 							<?= count($message['replies']) ?> <?= count($message['replies']) === 1 ? 'reply' : 'replies' ?>
 						</h3>
+						<a class="small button reply-toggle">toggle</a>
 						<ul>
 							<?php foreach ($message['replies'] as $reply): ?>
 								<li class="reply<?= $reply['id'] === $newReplyId ? ' newly-posted' : '' ?>">
