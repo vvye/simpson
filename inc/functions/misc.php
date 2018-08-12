@@ -81,3 +81,52 @@
 	{
 		return str_replace(['@', '.'], [' <code>at</code> ', ' <code>dot</code> '], $email);
 	}
+
+
+	function renderPagination($link, $page, $numPages)
+	{
+		if ($numPages === 1)
+		{
+			return;
+		}
+
+		$range = 2;
+		$elision = false;
+
+		echo '<ul class="pagination">';
+		for ($i = 1; $i <= $numPages; $i++)
+		{
+			if ($i <= $range + 1 || $i >= $numPages - $range || ($page - $range <= $i && $page + $range >= $i))
+			{
+				$selected = ($i === $page) ? ' class="selected"' : '';
+				echo '<li' . $selected . '><a href="' . $link . '/' . $i . '">' . $i . '</a></li>';
+				$elision = false;
+			}
+			else if (!$elision)
+			{
+				echo '<li class="elision">&hellip;</li>';
+				$elision = true;
+			}
+		}
+		echo '</ul>';
+	}
+
+
+	function constrain(&$var, $min, $max)
+	{
+		if ($max < $min)
+		{
+			$tmp = $max;
+			$max = $min;
+			$min = $tmp;
+		}
+
+		if ($var < $min)
+		{
+			$var = $min;
+		}
+		else if ($var > $max)
+		{
+			$var = $max;
+		}
+	}

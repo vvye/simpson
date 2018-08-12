@@ -1,10 +1,25 @@
 <?php
 
+	require_once __DIR__ . '/../config/messages.php';
+
 	require_once __DIR__ . '/users.php';
 	require_once __DIR__ . '/avatars.php';
 
 
-	function getMessages()
+	function getNumMessages()
+	{
+		global $database;
+
+		return $database->count('messages', 'id', [
+			'AND' => [
+				'parent'  => null,
+				'deleted' => 0
+			]
+		]);
+	}
+
+
+	function getMessages($page)
 	{
 		global $database;
 
@@ -26,7 +41,8 @@
 				'parent'  => null,
 				'deleted' => 0
 			],
-			'ORDER' => ['post_time' => 'DESC', 'id' => 'ASC']
+			'ORDER' => ['post_time' => 'DESC', 'id' => 'ASC'],
+			'LIMIT' => [($page - 1) * MESSAGES_PER_PAGE, MESSAGES_PER_PAGE]
 		]);
 
 		$messages = array_map('processMessage', $messages);

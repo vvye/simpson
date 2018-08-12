@@ -4,9 +4,12 @@
 	require_once __DIR__ . '/../functions/messages.php';
 	require_once __DIR__ . '/../functions/users.php';
 
+	global $currentSubpageName;
+
 
 	do
 	{
+
 		$newId = null;
 		$error = false;
 		$errorMessages = [];
@@ -55,7 +58,12 @@
 
 	} while (false);
 
-	$messages = getMessages();
+	$page = is_numeric($currentSubpageName) && is_int($currentSubpageName * 1) ? $currentSubpageName * 1 : 1;
+	$numMessages = getNumMessages();
+	$numPages = (int)ceil($numMessages / MESSAGES_PER_PAGE);
+	constrain($page, 1, $numPages);
+
+	$messages = getMessages($page);
 
 	renderTemplate('messages', [
 		'messages'      => $messages,
@@ -66,3 +74,5 @@
 		'errorMessages' => $errorMessages,
 		'newId'         => $newId,
 	]);
+
+	renderPagination(BASE_PATH . '/messages', $page, $numPages);

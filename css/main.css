@@ -171,3 +171,48 @@ footer p {
     display: block;
     margin-bottom: 1rem;
 }
+
+.pagination {
+    margin: 1rem 0 2rem;
+    list-style-type: none;
+    font-size: 0;
+    text-align: center;
+}
+
+.pagination li {
+    display: inline-block;
+    margin: 0 -1px 0 0;
+    font-size: 1rem;
+}
+
+.pagination li.elision {
+    padding: 0.6rem;
+}
+
+.pagination li a {
+    display: inline-block;
+    border: 1px solid #888;
+    background-color: white;
+    padding: 0.4rem 0.8rem;
+    color: #222;
+    text-decoration: none;
+}
+
+.pagination li:first-child a {
+    border-radius: 3px 0 0 3px;
+}
+
+.pagination li:last-child a {
+    border-radius: 0 3px 3px 0;
+}
+
+.pagination li a:hover {
+    background-color: #ddd;
+}
+
+.pagination li.selected a,
+.pagination li.selected a:hover {
+    background-color: #888;
+    color: white;
+    font-weight: bold;
+}
