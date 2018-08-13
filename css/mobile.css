@@ -1,0 +1,149 @@
+@media (max-width: 64rem) {
+
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li .title {
+        display: none;
+    }
+
+    .main {
+        padding-top: 1rem;
+    }
+
+    .column {
+        float: none;
+        width: unset;
+    }
+
+    .column .column-content {
+        padding: 0 !important;
+    }
+
+    .panel {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+    }
+
+    .narrow {
+        max-width: unset;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 0;
+    }
+
+    h1 + p {
+        position: static;
+        font-size: 1rem;
+        text-align: right;
+        margin: -0.5rem 0 1.5rem;
+        max-width: 20rem;
+    }
+
+    .login-form input {
+        display: block;
+        width: 100%;
+        max-width: 24rem;
+        margin: 0.5rem auto 0;
+    }
+
+    .home-panel {
+        margin-top: 2rem;
+    }
+
+    .home-panel table,
+    .home-panel input {
+        width: 100%;
+    }
+
+    .home-panel td.prompt {
+        display: none;
+    }
+
+    .home-panel tr:nth-child(4) td:before {
+        display: block;
+        margin-top: 0.5rem;
+        content: 'Choose a password:';
+    }
+
+    .message .avatar {
+        width: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .message h3,
+    .message .post-time {
+        font-size: 14px;
+    }
+
+    .message .post-time {
+        display: block;
+        font-size: 0.7rem;
+    }
+
+    .message .content {
+        padding: 0;
+    }
+
+    .message .text {
+        clear: both;
+        padding: 0;
+    }
+
+    .message .replies {
+        margin: 1rem 0 0;
+    }
+
+    .reply .avatar {
+        width: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-message-form input,
+    .main-message-form .button {
+        width: 100% !important;
+    }
+
+    .main-message-form .button {
+        text-align: center;
+    }
+
+    .profile {
+        text-align: center;
+    }
+
+    .profile .avatar {
+        float: none;
+    }
+
+    .profile .clearfix {
+        margin: 1.5rem 0;
+        border-top: 1px solid #aaa;
+    }
+
+    .profile + .button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-editor td {
+        display: block;
+        text-align: left !important;
+    }
+
+    .profile-editor input,
+    .profile-editor textarea {
+        width: 100%;
+    }
+
+    .profile-editor .checkbox.spaced {
+        margin-left: 0;
+    }
+
+}

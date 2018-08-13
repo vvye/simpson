@@ -200,6 +200,7 @@
 		], 'messages.id', [
 			'AND' => [
 				'messages.deleted'      => 0,
+				'parents.deleted'       => 0,
 				'parents.post_time[>]'  => $_SESSION['lastActivityTime'],
 				'messages.post_time[>]' => $_SESSION['lastActivityTime']
 			]
@@ -230,6 +231,7 @@
 		], 'messages.id', [
 			'AND' => [
 				'messages.deleted'      => 0,
+				'parents.deleted'       => 0,
 				'parents.user'          => $_SESSION['userId'],
 				'messages.post_time[>]' => $_SESSION['lastActivityTime']
 			]

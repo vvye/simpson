@@ -5,7 +5,7 @@
 	require_once __DIR__ . '/../functions/register.php';
 
 
-	if (isset($_POST['home-panel']))
+	if (isset($_POST['register']))
 	{
 		$registrationErrorMessages = validateRegistrationForm();
 

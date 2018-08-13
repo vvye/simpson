@@ -1,4 +1,4 @@
-<form action="<?= BASE_PATH ?>/?p=edit-profile" method="post" enctype="multipart/form-data">
+<form class="profile-editor" action="<?= BASE_PATH ?>/?p=edit-profile" method="post" enctype="multipart/form-data">
 	<fieldset>
 		<legend>Personal info</legend>
 		<table>

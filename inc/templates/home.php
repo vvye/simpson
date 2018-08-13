@@ -9,7 +9,7 @@
 				<form class="login-form" action="<?= BASE_PATH ?>/session.php?action=login" method="post">
 					<label><input type="email" name="email" placeholder="E-Mail" /></label>
 					<label><input type="password" name="password" placeholder="Password" /></label>
-					<button type="submit">Log in</button>
+					<input type="submit" class="button" value="Log in">
 				</form>
 				<?php if ($loginError): ?>
 					<div class="alert error">
@@ -83,28 +83,28 @@
 					<form action="<?= BASE_PATH ?>/?p=home" method="post">
 						<table>
 							<tr>
-								<td><label for="first-name">First name:</label></td>
+								<td class="prompt"><label for="first-name">First name:</label></td>
 								<td>
 									<input type="text" id="first-name" name="first-name" placeholder="First name"
 									       value="<?= $firstName ?>" />
 								</td>
 							</tr>
 							<tr>
-								<td><label for="last-name">Last name:</label></td>
+								<td class="prompt"><label for="last-name">Last name:</label></td>
 								<td>
 									<input type="text" id="last-name" name="last-name" placeholder="Last name"
 									       value="<?= $lastName ?>" />
 								</td>
 							</tr>
 							<tr>
-								<td><label for="email">E-Mail:</label></td>
+								<td class="prompt"><label for="email">E-Mail:</label></td>
 								<td>
 									<input type="email" id="email" name="email" placeholder="E-Mail"
 									       value="<?= $email ?>" />
 								</td>
 							</tr>
 							<tr>
-								<td><label for="password">Choose a password:</label></td>
+								<td class="prompt"><label for="password">Choose a password:</label></td>
 								<td>
 									<input type="password" id="password" name="password" value="<?= $password ?>" />
 								</td>

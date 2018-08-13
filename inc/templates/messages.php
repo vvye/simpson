@@ -5,7 +5,7 @@
 	<?php endif ?>
 
 	<form action="<?= BASE_PATH ?>/?p=messages" method="post">
-		<div class="message message-form panel">
+		<div class="message message-form main-message-form panel">
 			<a class="primary button visible-with-js" id="write-message">Write a message</a>
 			<div id="message-form" <?= $messageError ? '' : 'class="hidden-with-js"' ?>>
 				<textarea id="content" name="content"

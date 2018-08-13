@@ -30,6 +30,7 @@
 		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/user.css" />
 		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/messages.css" />
 		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/form.css" />
+		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/mobile.css" />
 	</head>
 	<body>
 

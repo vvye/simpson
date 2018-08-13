@@ -229,3 +229,8 @@ button.full-size,
     display: inline-block;
     margin-top: 0;
 }
+
+.reply-form input + .alert.error,
+.reply-form form + .alert.success {
+    margin-top: 1rem;
+}
