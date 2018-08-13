@@ -1,5 +1,6 @@
 <?php
 
+	require_once __DIR__ . '/../functions/form.php';
 	require_once __DIR__ . '/../functions/messages.php';
 
 	global $currentSubpageName;
@@ -28,16 +29,15 @@
 			break;
 		}
 
-		if (!isCsrfTokenCorrect(getFieldValue('token')))
-		{
-			renderErrorAlert(MSG_BAD_TOKEN);
-			break;
-		}
-
 		$success = $error = false;
 
 		if (isset($_POST['submit']))
 		{
+			if (!isCsrfTokenCorrect(getFieldValue('token')))
+			{
+				renderErrorAlert(MSG_BAD_TOKEN);
+				break;
+			}
 			if (deleteMessage($messageId))
 			{
 				$success = true;
