@@ -62,7 +62,14 @@
 							</a>
 						</h3>
 					<?php endif ?>
+
 					<span class="post-time"><?= renderDate($message['post_time'], true) ?></span>
+
+					<?php if ($message['isOwnMessage']): ?>
+						<a class="tiny subtle button" href="<?= BASE_PATH ?>/delete-message/<?= $message['id'] ?>">
+							Delete</a>
+					<?php endif ?>
+
 				</div>
 
 				<div class="text">
@@ -75,7 +82,11 @@
 						<h3>
 							<?= count($message['replies']) ?> <?= count($message['replies']) === 1 ? 'reply' : 'replies' ?>
 						</h3>
-						<a class="tiny subtle reply-toggle button">toggle</a>
+
+						<a class="tiny subtle reply-toggle button">
+							<?= count($message['replies']) > REPLIES_SHOWN ? '▼' : '▲' ?>
+						</a>
+
 						<ul<?= count($message['replies']) > REPLIES_SHOWN ? ' class="hidden"' : '' ?>>
 
 							<?php foreach ($message['replies'] as $reply): ?>
@@ -115,12 +126,9 @@
 
 				<?php endif ?>
 
-				<div id="message-<?= $message['id'] ?>-reply-form" class="reply-form editor">
+				<div class="clearfix"></div>
 
-					<?php if ($message['isOwnMessage']): ?>
-						<a class="small subtle button" href="<?= BASE_PATH ?>/delete-message/<?= $message['id'] ?>">
-							Delete</a>
-					<?php endif ?>
+				<div id="message-<?= $message['id'] ?>-reply-form" class="reply-form editor">
 
 					<a class="small button" data-message="<?= $message['id'] ?>">Reply</a>
 					<form action="<?= BASE_PATH ?>/messages#message-<?= $message['id'] ?>"
@@ -144,8 +152,9 @@
 					<?php endif ?>
 
 				</div>
+
 			</div>
-			<div class="clearfix"></div>
+
 		</div>
 
 	<?php endforeach ?>

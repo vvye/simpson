@@ -83,12 +83,14 @@ button,
 button.subtle,
 .button.subtle {
     background: none;
+    color: #888;
 }
 
 button:hover,
 .button:hover {
     border-color: #a0a0a0;
     background-color: #e4e4e4;
+    color: #222;
 }
 
 button.primary,
@@ -119,7 +121,7 @@ button.tiny,
 .button.tiny {
     margin: 0;
     font-size: 0.75rem;
-    padding: 0 0.5rem;
+    padding: 0 0.35rem;
 }
 
 button.full-size,
@@ -208,8 +210,15 @@ button.full-size,
 }
 
 .reply-form {
-    margin-top: 1rem;
     text-align: right;
+}
+
+.reply-form .button {
+    margin-bottom: 0;
+}
+
+.reply-form textarea {
+    margin-top: 1rem;
 }
 
 .reply-form input[type="submit"] {

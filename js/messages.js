@@ -52,8 +52,10 @@ for (let button of replyToggleButtons) {
         let replyList = this.nextElementSibling;
         if (replyList.style.display === 'none') {
             replyList.style.display = 'block';
+            this.innerHTML = '▲';
         } else {
             replyList.style.display = 'none';
+            this.innerHTML = '▼';
         }
     }
 }
