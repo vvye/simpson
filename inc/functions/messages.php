@@ -183,6 +183,7 @@
 
 		return (int)($database->count('messages', 'id', [
 			'AND' => [
+				'deleted'      => 0,
 				'parent'       => null,
 				'post_time[>]' => $_SESSION['lastActivityTime']
 			]
@@ -198,6 +199,7 @@
 			'[>]messages(parents)' => ['parent' => 'id']
 		], 'messages.id', [
 			'AND' => [
+				'messages.deleted'      => 0,
 				'parents.post_time[>]'  => $_SESSION['lastActivityTime'],
 				'messages.post_time[>]' => $_SESSION['lastActivityTime']
 			]
@@ -211,6 +213,7 @@
 
 		return (int)($database->count('messages', 'id', [
 			'AND' => [
+				'deleted'      => 0,
 				'addressee'    => $_SESSION['userId'],
 				'post_time[>]' => $_SESSION['lastActivityTime']
 			]
@@ -226,6 +229,7 @@
 			'[>]messages(parents)' => ['parent' => 'id']
 		], 'messages.id', [
 			'AND' => [
+				'messages.deleted'      => 0,
 				'parents.user'          => $_SESSION['userId'],
 				'messages.post_time[>]' => $_SESSION['lastActivityTime']
 			]

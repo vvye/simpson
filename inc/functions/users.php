@@ -59,11 +59,16 @@
 	{
 		global $database;
 
-		return (int)($database->query('
-			SELECT COUNT(`id`)
-			FROM `users`
-			WHERE CONCAT(first_name, \' \', last_name) = ' . $database->quote($name)
-		)->fetchAll()[0][0]);
+		$users = $database->select('users', [
+			'first_name',
+			'last_name'
+		]);
+
+		$users = array_filter($users, function ($user) use ($name) {
+			return $user['first_name'] . ' ' . $user['last_name'] === $name;
+		});
+
+		return count($users);
 	}
 
 
@@ -71,11 +76,15 @@
 	{
 		global $database;
 
-		$users = $database->query('
-			SELECT `id`
-			FROM `users`
-			WHERE CONCAT(first_name, \' \', last_name) = ' . $database->quote($name)
-		)->fetchAll();
+		$users = $database->select('users', [
+			'id',
+			'first_name',
+			'last_name'
+		]);
+
+		$users = array_filter($users, function ($user) use ($name) {
+			return $user['first_name'] . ' ' . $user['last_name'] === $name;
+		});
 
 		if (empty($users))
 		{

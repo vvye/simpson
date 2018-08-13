@@ -51,10 +51,16 @@
 									</li>
 								<?php endif ?>
 								<?php if ($numNewAddressings !== 0): ?>
-									<li><strong><?= $numNewAddressings ?></strong> of them are for you!</li>
+									<li>
+										<strong><?= $numNewAddressings ?></strong> of
+										them <?= $numNewAddressings === 1 ? 'is' : 'are' ?> for you!
+									</li>
 								<?php endif ?>
 								<?php if ($numNewRepliesToUser !== 0): ?>
-									<li><strong><?= $numNewRepliesToUser ?></strong> new replies to your messages</li>
+									<li>
+										<strong><?= $numNewRepliesToUser ?></strong>
+										new <?= $numNewRepliesToUser === 1 ? 'reply' : 'replies' ?> to your messages
+									</li>
 								<?php endif ?>
 							</ul>
 						</div>

@@ -31,8 +31,8 @@
 	renderTemplate('home', [
 		'loggedIn'                  => isLoggedIn(),
 		'displayName'               => $_SESSION['firstName'] ?? '',
-		'hasAvatar'                 => hasAvatar($_SESSION['userId']),
-		'userId'                    => $_SESSION['userId'],
+		'hasAvatar'                 => isLoggedIn() && hasAvatar($_SESSION['userId']),
+		'userId'                    => $_SESSION['userId'] ?? 0,
 		'loginError'                => isset($_GET['login-error']),
 		'firstName'                 => getFieldValue('first-name'),
 		'lastName'                  => getFieldValue('last-name'),
