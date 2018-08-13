@@ -6,8 +6,8 @@
 
 	<form action="<?= BASE_PATH ?>/messages" method="post">
 		<div class="message editor panel">
-			<a class="primary button" id="write-message">Write a message</a>
-			<div id="message-form" <?= $messageError ? '' : 'class="hidden"' ?>>
+			<a class="primary button visible-with-js" id="write-message">Write a message</a>
+			<div id="message-form" <?= $messageError ? '' : 'class="hidden-with-js"' ?>>
 				<textarea id="content" name="content"
 				          placeholder="Write a message&hellip;"><?= $messageContent ?></textarea>
 				<label class="checkbox">
@@ -15,7 +15,7 @@
 					       name="add-addressee" <?= $addAddressee ? 'checked="checked"' : '' ?> />
 					<span class="label">Address another user (the message will still be public)</span>
 				</label>
-				<div id="addressee-form" <?= $addAddressee ? '' : 'class="hidden"' ?>>
+				<div id="addressee-form" <?= $addAddressee ? '' : 'class="hidden-with-js"' ?>>
 					<input type="text" id="addressee" name="addressee"
 					       placeholder="First and last name, or user ID if name isn't unique"
 					       value="<?= $addressee ?>" />
@@ -83,11 +83,11 @@
 							<?= count($message['replies']) ?> <?= count($message['replies']) === 1 ? 'reply' : 'replies' ?>
 						</h3>
 
-						<a class="tiny subtle reply-toggle button">
+						<a class="tiny subtle reply-toggle button visible-with-js">
 							<?= count($message['replies']) > REPLIES_SHOWN ? '▼' : '▲' ?>
 						</a>
 
-						<ul<?= count($message['replies']) > REPLIES_SHOWN ? ' class="hidden"' : '' ?>>
+						<ul<?= count($message['replies']) > REPLIES_SHOWN ? ' class="hidden-with-js"' : '' ?>>
 
 							<?php foreach ($message['replies'] as $reply): ?>
 
@@ -130,10 +130,10 @@
 
 				<div id="message-<?= $message['id'] ?>-reply-form" class="reply-form editor">
 
-					<a class="small button" data-message="<?= $message['id'] ?>">Reply</a>
+					<a class="small button visible-with-js" data-message="<?= $message['id'] ?>">Reply</a>
 					<form action="<?= BASE_PATH ?>/messages#message-<?= $message['id'] ?>"
 					      data-message="<?= $message['id'] ?>" method="post"
-						<?= $messageId === $message['id'] && $replyError ? '' : 'class="hidden"' ?>>
+						<?= $messageId === $message['id'] && $replyError ? '' : 'class="hidden-with-js"' ?>>
 						<input type="hidden" name="message-id" value="<?= $message['id'] ?>" />
 						<input type="hidden" name="token" value="<?= $token ?>" />
 						<textarea name="reply-content" placeholder="Write a reply&hellip;"></textarea>

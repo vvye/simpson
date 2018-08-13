@@ -158,6 +158,10 @@ footer p {
     font-size: 0.8rem;
 }
 
+.visible-with-js {
+    display: none !important;
+}
+
 .clearfix {
     clear: both;
 }

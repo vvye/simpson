@@ -71,7 +71,7 @@
 						<input type="checkbox" id="change-avatar" name="change-avatar" />
 						<span class="label">Choose a new avatar</span>
 					</label>
-					<div id="edit-avatar" class="hidden">
+					<div id="edit-avatar" class="hidden-with-js">
 						<input type="file" class="file-input" name="avatar" id="avatar" />
 					</div>
 				</td>

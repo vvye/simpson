@@ -1,5 +1,11 @@
 document.body.onload = function () {
-    let hiddenElements = document.querySelectorAll('.hidden');
+
+    let visibleElements = document.querySelectorAll('.visible-with-js');
+    for (let elem of visibleElements) {
+        elem.classList.remove('visible-with-js');
+    }
+
+    let hiddenElements = document.querySelectorAll('.hidden-with-js');
     for (let elem of hiddenElements) {
         elem.style.display = 'none';
     }
@@ -8,4 +14,5 @@ document.body.onload = function () {
     if (window.location.hash) {
         window.location.hash = window.location.hash;
     }
+
 };
