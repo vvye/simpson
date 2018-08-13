@@ -86,7 +86,15 @@
 	{
 		global $database;
 
-		$newToken = bin2hex(random_bytes(8));
+		try
+		{
+			$newToken = bin2hex(random_bytes(8));
+		}
+		catch (Exception $e)
+		{
+			$newToken = substr(md5(rand()), 0, 8);
+		}
+
 		$database->update('users', [
 			'csrf_token' => $newToken
 		], [
