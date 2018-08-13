@@ -58,14 +58,14 @@
 		global $database;
 
 		$database->insert('users', [
-			'id'                => null,
-			'first_name'        => htmlspecialchars($firstName),
-			'last_name'         => htmlspecialchars($lastName),
-			'password'          => $passwordHash,
-			'email'             => strtolower(htmlspecialchars($email)),
-			'bio'               => '',
-			'registration_time' => time(),
-			'last_login_time'   => 0,
+			'id'                 => null,
+			'first_name'         => htmlspecialchars($firstName),
+			'last_name'          => htmlspecialchars($lastName),
+			'password'           => $passwordHash,
+			'email'              => strtolower(htmlspecialchars($email)),
+			'bio'                => '',
+			'registration_time'  => time(),
+			'last_activity_time' => 0,
 		]);
 	}
 	

@@ -12,7 +12,7 @@
 			'email_public',
 			'bio',
 			'registration_time',
-			'last_login_time',
+			'last_activity_time',
 		], [
 			'id'    => $userId,
 			'LIMIT' => 1

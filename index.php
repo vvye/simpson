@@ -20,6 +20,8 @@
 
 	$database = getDatabase();
 
+	updateLastActivityTime();
+
 ?><!doctype html>
 <html lang="en">
 	<head>

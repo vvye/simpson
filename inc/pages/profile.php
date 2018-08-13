@@ -36,7 +36,7 @@
 			'bio'              => nl2br($user['bio']),
 			'hasAvatar'        => hasAvatar($userId),
 			'registrationTime' => $user['registration_time'],
-			'lastLoginTime'    => $user['last_login_time'],
+			'lastActivityTime' => $user['last_activity_time'],
 			'token'            => getCsrfToken()
 		]);
 

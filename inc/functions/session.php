@@ -33,12 +33,6 @@
 
 		$_SESSION['csrfToken'] = renewCsrfToken();
 
-		$database->update('users', [
-			'last_login_time' => time(),
-		], [
-			'id' => $user['id']
-		]);
-
 		return true;
 	}
 
@@ -112,8 +106,25 @@
 		global $database;
 
 		$database->update('users', [
-			'password'     => password_hash($password, PASSWORD_DEFAULT)
+			'password' => password_hash($password, PASSWORD_DEFAULT)
 		], [
 			'id' => $userId
+		]);
+	}
+
+
+	function updateLastActivityTime()
+	{
+		global $database;
+
+		if (!isLoggedIn())
+		{
+			return;
+		}
+
+		$database->update('users', [
+			'last_activity_time' => time()
+		], [
+			'id' => $_SESSION['userId']
 		]);
 	}

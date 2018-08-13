@@ -28,7 +28,7 @@ CREATE TABLE `users` (
   `email_public` tinyint(4) NOT NULL DEFAULT '0',
   `bio` longtext NOT NULL,
   `registration_time` int(11) NOT NULL,
-  `last_login_time` int(11) NOT NULL,
+  `last_activity_time` int(11) NOT NULL,
   `csrf_token` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

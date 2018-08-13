@@ -13,7 +13,7 @@
 
 	<p>
 		Registered: <?= renderDate($registrationTime, true) ?><br />
-		Last login: <?= renderDate($lastLoginTime, true) ?>
+		Last active: <?= $lastActivityTime === 0 ? 'never' : renderDate($lastActivityTime, true) ?>
 	</p>
 
 	<div class="clearfix"></div>
