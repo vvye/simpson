@@ -13,8 +13,8 @@
 				'server'        => DB_SERVER,
 				'username'      => DB_USERNAME,
 				'password'      => DB_PASSWORD,
-				'database_name' => DB_DATABASENAME,
-				'database_type' => 'mysql',
+				'database_name' => DB_DATABASE_NAME,
+				'database_type' => DB_DATABASE_TYPE,
 				'charset'       => DB_CHARSET
 			]);
 		}
