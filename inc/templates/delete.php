@@ -38,7 +38,7 @@
 			<div class="clearfix"></div>
 		</div>
 
-		<form action="<?= BASE_PATH ?>/?p=delete&message=<?= $message['id'] ?>" method="post">
+		<form class="delete-form" action="<?= BASE_PATH ?>/?p=delete&message=<?= $message['id'] ?>" method="post">
 			<input type="submit" class="button" name="submit" value="Delete" />
 			<input type="hidden" name="token" value="<?= $token ?>" />
 			<a class="primary button" href="<?= BASE_PATH ?>/?p=messages">Cancel</a>
