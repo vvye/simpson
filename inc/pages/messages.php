@@ -4,8 +4,6 @@
 	require_once __DIR__ . '/../functions/messages.php';
 	require_once __DIR__ . '/../functions/users.php';
 
-	global $currentSubpageName;
-
 
 	do
 	{

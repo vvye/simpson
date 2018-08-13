@@ -1,12 +1,10 @@
 <?php
 
-	require_once __DIR__ . '/../functions/users.php';
 	require_once __DIR__ . '/../functions/avatars.php';
 	require_once __DIR__ . '/../functions/form.php';
 	require_once __DIR__ . '/../functions/misc.php';
 	require_once __DIR__ . '/../functions/register.php';
-
-	global $currentSubpageName;
+	require_once __DIR__ . '/../functions/users.php';
 
 
 	do
