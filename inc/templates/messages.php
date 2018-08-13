@@ -37,14 +37,18 @@
 	</form>
 
 	<?php foreach ($messages as $message): ?>
+
 		<div id="message-<?= $message['id'] ?>"
 		     class="message panel<?= $message['id'] === $newMessageId ? ' newly-posted' : '' ?>">
+
 			<?php if ($message['authorHasAvatar']): ?>
 				<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/<?= $message['author_id'] ?>.png" />
 			<?php else: ?>
 				<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" />
 			<?php endif ?>
+
 			<div class="content">
+
 				<div class="info">
 					<h3>
 						<a href="<?= BASE_PATH ?>/profile/<?= $message['author_id'] ?>">
@@ -60,24 +64,31 @@
 					<?php endif ?>
 					<span class="post-time"><?= renderDate($message['post_time'], true) ?></span>
 				</div>
+
 				<div class="text">
 					<?= $message['content'] ?>
 				</div>
+
 				<?php if (!empty($message['replies'])): ?>
+
 					<div class="replies">
 						<h3>
 							<?= count($message['replies']) ?> <?= count($message['replies']) === 1 ? 'reply' : 'replies' ?>
 						</h3>
 						<a class="tiny subtle reply-toggle button">toggle</a>
 						<ul<?= count($message['replies']) > REPLIES_SHOWN ? ' class="hidden"' : '' ?>>
+
 							<?php foreach ($message['replies'] as $reply): ?>
+
 								<li class="reply<?= $reply['id'] === $newReplyId ? ' newly-posted' : '' ?>">
+
 									<?php if ($reply['authorHasAvatar']): ?>
 										<img class="avatar"
 										     src="<?= BASE_PATH ?>/img/avatars/<?= $reply['author_id'] ?>.png" />
 									<?php else: ?>
 										<img class="avatar" src="<?= BASE_PATH ?>/img/avatars/default.png" />
 									<?php endif ?>
+
 									<div class="content">
 										<div class="info">
 											<h4>
@@ -91,19 +102,26 @@
 												   href="<?= BASE_PATH ?>/delete-message/<?= $reply['id'] ?>">Delete</a>
 											<?php endif ?>
 										</div>
+
 										<?= $reply['content'] ?>
 									</div>
 									<div class="clearfix"></div>
 								</li>
+
 							<?php endforeach ?>
+
 						</ul>
 					</div>
+
 				<?php endif ?>
+
 				<div id="message-<?= $message['id'] ?>-reply-form" class="reply-form editor">
+
 					<?php if ($message['isOwnMessage']): ?>
 						<a class="small subtle button" href="<?= BASE_PATH ?>/delete-message/<?= $message['id'] ?>">
 							Delete</a>
 					<?php endif ?>
+
 					<a class="small button" data-message="<?= $message['id'] ?>">Reply</a>
 					<form action="<?= BASE_PATH ?>/messages#message-<?= $message['id'] ?>"
 					      data-message="<?= $message['id'] ?>" method="post"
@@ -118,15 +136,18 @@
 							</div>
 						<?php endif ?>
 					</form>
+
 					<?php if ($messageId === $message['id'] && $newReplyId !== null): ?>
 						<div id="reply-post-success" class="alert success">
 							Your reply has been posted!
 						</div>
 					<?php endif ?>
+
 				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
+
 	<?php endforeach ?>
 
 </div>
