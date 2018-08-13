@@ -45,7 +45,7 @@ I'm not hosting *simpson* myself, but you can if you want.
 2. Put all the files somewhere on your server (anything that runs PHP should work).
 3. Set up the database by running `database.sql`.
 4. Change the database configuration in `inc/config/database.php`.
-5. In `inc/config/misc.php`, set `BASE_PATH` to point to your simpson directory from your document root.
+5. In `inc/config/pages.php`, set `BASE_PATH` to point to your simpson directory from your document root.
 6. *simpson* should now be up and running, I think!
 
 ## License and usage and stuff
