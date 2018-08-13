@@ -89,7 +89,7 @@
 
 	} while (false);
 
-	$page = is_numeric($currentSubpageName) && is_int($currentSubpageName * 1) ? $currentSubpageName * 1 : 1;
+	$page = isset($_GET['page']) && is_int($_GET['page'] * 1) ? $_GET['page'] * 1 : 1;
 	$numMessages = getNumMessages();
 	$numPages = (int)ceil($numMessages / MESSAGES_PER_PAGE);
 	constrain($page, 1, $numPages);
