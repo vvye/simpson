@@ -39,6 +39,7 @@
 		</div>
 
 		<form action="<?= BASE_PATH ?>/delete-message/<?= $message['id'] ?>" method="post">
+			<input type="hidden" name="token" value="<?= $token ?>" />
 			<input type="submit" class="button" name="submit" value="Delete" />
 			<a class="primary button" href="<?= BASE_PATH ?>/messages">Cancel</a>
 		</form>

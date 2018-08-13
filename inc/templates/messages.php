@@ -20,6 +20,7 @@
 					       placeholder="First and last name, or user ID if name isn't unique"
 					       value="<?= $addressee ?>" />
 				</div>
+				<input type="hidden" name="token" value="<?= $token ?>" />
 				<input type="submit" name="post-message" id="post-message" class="button" value="Post message" />
 				<?php if ($messageError): ?>
 					<div class="alert error">
@@ -86,8 +87,8 @@
 											</h4>
 											<span class="post-time"><?= renderDate($reply['post_time'], true) ?></span>
 											<?php if ($reply['isOwnMessage']): ?>
-											<a class="tiny subtle button"
-											   href="<?= BASE_PATH ?>/delete-message/<?= $reply['id'] ?>">Delete</a>
+												<a class="tiny subtle button"
+												   href="<?= BASE_PATH ?>/delete-message/<?= $reply['id'] ?>">Delete</a>
 											<?php endif ?>
 										</div>
 										<?= $reply['content'] ?>
@@ -104,10 +105,11 @@
 							Delete</a>
 					<?php endif ?>
 					<a class="small button" data-message="<?= $message['id'] ?>">Reply</a>
-					<form action="<?= BASE_PATH ?>/messages#message-<?= $message['id'] ?>-reply-form"
+					<form action="<?= BASE_PATH ?>/messages#message-<?= $message['id'] ?>"
 					      data-message="<?= $message['id'] ?>" method="post"
 						<?= $messageId === $message['id'] && $replyError ? '' : 'class="hidden"' ?>>
 						<input type="hidden" name="message-id" value="<?= $message['id'] ?>" />
+						<input type="hidden" name="token" value="<?= $token ?>" />
 						<textarea name="reply-content" placeholder="Write a reply&hellip;"></textarea>
 						<input class="small button" type="submit" name="post-reply" value="Post reply">
 						<?php if ($messageId === $message['id'] && $replyError): ?>

@@ -28,6 +28,12 @@
 				break;
 			}
 
+			if (!isCsrfTokenCorrect(getFieldValue('token')))
+			{
+				$messageErrors[] = MSG_BAD_TOKEN;
+				break;
+			}
+
 			$numUsersByName = getNumUsersByName($addressee);
 
 			if ($numUsersByName !== 0)
@@ -65,6 +71,12 @@
 				break;
 			}
 
+			if (!isCsrfTokenCorrect(getFieldValue('token')))
+			{
+				$replyErrors[] = MSG_BAD_TOKEN;
+				break;
+			}
+
 			$newReplyId = postReply($replyContent, $parentId);
 		}
 		else
@@ -97,6 +109,7 @@
 		'replyErrors'    => $replyErrors,
 		'messageId'      => $parentId,
 		'newReplyId'     => $newReplyId,
+		'token'          => getCsrfToken(),
 	]);
 
 	renderPagination(BASE_PATH . '/messages', $page, $numPages);

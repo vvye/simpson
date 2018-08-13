@@ -25,6 +25,13 @@
 		if ((int)$message['author_id'] !== $_SESSION['userId'])
 		{
 			renderErrorAlert(MSG_NOT_YOUR_MESSAGE);
+			break;
+		}
+
+		if (!isCsrfTokenCorrect(getFieldValue('token')))
+		{
+			renderErrorAlert(MSG_BAD_TOKEN);
+			break;
 		}
 
 		$success = $error = false;
@@ -44,7 +51,8 @@
 		renderTemplate('delete-message', [
 			'message' => $message,
 			'success' => $success,
-			'error'   => $error
+			'error'   => $error,
+			'token'   => getCsrfToken()
 		]);
 
 	} while (false);
