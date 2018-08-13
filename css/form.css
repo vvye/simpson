@@ -181,6 +181,10 @@ button.full-size,
     margin-left: 1rem;
 }
 
+.login-form {
+    margin-top: 2rem;
+}
+
 .register form {
     margin: 2rem 0;
 }
@@ -189,23 +193,23 @@ button.full-size,
     margin: auto;
 }
 
-.editor {
+.message-form {
     padding-bottom: 0;
 }
 
-.editor textarea {
+.message-form textarea {
     display: block;
     width: 100%;
     max-width: 100%;
     margin-bottom: 1rem;
 }
 
-.editor input[type="submit"] {
+.message-form input[type="submit"] {
     display: block;
     margin-top: 1rem;
 }
 
-.editor input[type="text"] {
+.message-form input[type="text"] {
     width: 24rem;
 }
 

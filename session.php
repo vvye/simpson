@@ -13,14 +13,14 @@
 	if (isset($_GET['action']) && $_GET['action'] === 'login')
 	{
 		$loginSuccess = doLogin();
-		header('Location: ' . $baseUrl . '/home' . ($loginSuccess ? '' : '?login-error'));
+		header('Location: ' . $baseUrl . '/?p=home' . ($loginSuccess ? '' : '&login-error'));
 	}
 	else if (isset($_GET['action']) && $_GET['action'] === 'logout')
 	{
 		doLogout();
-		header('Location: ' . $baseUrl . '/home');
+		header('Location: ' . $baseUrl . '/?p=home');
 	}
 	else
 	{
-		header('Location: ' . $baseUrl . '/home');
+		header('Location: ' . $baseUrl . '/?p=home');
 	}

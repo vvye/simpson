@@ -4,8 +4,8 @@
 		<em class="empty">There aren't any messages yet.</em>
 	<?php endif ?>
 
-	<form action="<?= BASE_PATH ?>/messages" method="post">
-		<div class="message editor panel">
+	<form action="<?= BASE_PATH ?>/?p=messages" method="post">
+		<div class="message message-form panel">
 			<a class="primary button visible-with-js" id="write-message">Write a message</a>
 			<div id="message-form" <?= $messageError ? '' : 'class="hidden-with-js"' ?>>
 				<textarea id="content" name="content"
@@ -51,13 +51,13 @@
 
 				<div class="info">
 					<h3>
-						<a href="<?= BASE_PATH ?>/profile/<?= $message['author_id'] ?>">
+						<a href="<?= BASE_PATH ?>/?p=profile&user=<?= $message['author_id'] ?>">
 							<?= $message['author_first_name'] ?> <?= $message['author_last_name'] ?>
 						</a>
 					</h3>
 					<?php if ($message['hasAddressee']): ?>
 						<h3>
-							► <a href="<?= BASE_PATH ?>/profile/<?= $message['addressee_id'] ?>">
+							► <a href="<?= BASE_PATH ?>/?p=profile&user=<?= $message['addressee_id'] ?>">
 								<?= $message['addressee_first_name'] ?> <?= $message['addressee_last_name'] ?>
 							</a>
 						</h3>
@@ -66,7 +66,7 @@
 					<span class="post-time"><?= renderDate($message['post_time'], true) ?></span>
 
 					<?php if ($message['isOwnMessage']): ?>
-						<a class="tiny subtle button" href="<?= BASE_PATH ?>/delete-message/<?= $message['id'] ?>">
+						<a class="tiny subtle button" href="<?= BASE_PATH ?>/?p=delete&message=<?= $message['id'] ?>">
 							Delete</a>
 					<?php endif ?>
 
@@ -103,14 +103,14 @@
 									<div class="content">
 										<div class="info">
 											<h4>
-												<a href="<?= BASE_PATH ?>/profile/<?= $reply['author_id'] ?>">
+												<a href="<?= BASE_PATH ?>/?p=profile&user=<?= $reply['author_id'] ?>">
 													<?= $reply['author_first_name'] ?> <?= $reply['author_last_name'] ?>
 												</a>
 											</h4>
 											<span class="post-time"><?= renderDate($reply['post_time'], true) ?></span>
 											<?php if ($reply['isOwnMessage']): ?>
 												<a class="tiny subtle button"
-												   href="<?= BASE_PATH ?>/delete-message/<?= $reply['id'] ?>">Delete</a>
+												   href="<?= BASE_PATH ?>/?p=delete&message=<?= $reply['id'] ?>">Delete</a>
 											<?php endif ?>
 										</div>
 
@@ -128,10 +128,10 @@
 
 				<div class="clearfix"></div>
 
-				<div id="message-<?= $message['id'] ?>-reply-form" class="reply-form editor">
+				<div id="message-<?= $message['id'] ?>-reply-form" class="reply-form message-form">
 
 					<a class="small button visible-with-js" data-message="<?= $message['id'] ?>">Reply</a>
-					<form action="<?= BASE_PATH ?>/messages#message-<?= $message['id'] ?>"
+					<form action="<?= BASE_PATH ?>/?p=messages#message-<?= $message['id'] ?>"
 					      data-message="<?= $message['id'] ?>" method="post"
 						<?= $messageId === $message['id'] && $replyError ? '' : 'class="hidden-with-js"' ?>>
 						<input type="hidden" name="message-id" value="<?= $message['id'] ?>" />

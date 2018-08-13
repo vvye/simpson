@@ -1,4 +1,4 @@
-<form action="<?= $action ?>" method="post" enctype="multipart/form-data">
+<form action="<?= BASE_PATH ?>/?p=edit-profile" method="post" enctype="multipart/form-data">
 	<fieldset>
 		<legend>Personal info</legend>
 		<table>
@@ -87,6 +87,7 @@
 			</tr>
 		</table>
 	</fieldset>
+	<input type="hidden" name="token" value="<?= $token ?>" />
 	<input type="submit" name="submit" class="primary button" value="Edit profile">
 </form>
 

@@ -4,41 +4,43 @@
 
 	define('DEFAULT_PAGE_NAME', 'home');
 
-	define('DEFAULT_SUBPAGE_NAME', '');
-
 	define('ERROR_PAGE', [
 		'name' => '404'
 	]);
 
 	define('PAGES', [
-		'home'         => [
+		'home'           => [
 			'name'    => 'home',
-			'caption' => 'Home'
+			'caption' => 'Home',
+			'inMenu'  => true
 		],
-		'messages'     => [
+		'messages'       => [
 			'name'      => 'messages',
 			'caption'   => 'Messages',
-			'condition' => isLoggedIn()
+			'condition' => isLoggedIn(),
+			'inMenu'    => true,
+			'related'   => ['delete']
 		],
-		'profile'      => [
+		'profile'        => [
 			'name'      => 'profile',
 			'caption'   => 'My profile',
-			'condition' => isLoggedIn()
+			'condition' => isLoggedIn(),
+			'inMenu'    => true,
+			'related'   => ['edit-profile']
 		],
-		'logout'       => [
+		'logout'         => [
 			'link'      => BASE_PATH . '/session.php?action=logout',
 			'name'      => 'logout',
 			'caption'   => 'Log out',
+			'condition' => isLoggedIn(),
+			'inMenu'    => true
+		],
+		'edit-profile'   => [
+			'name'      => 'edit-profile',
 			'condition' => isLoggedIn()
 		],
-		'edit-profile' => [
-			'name'      => 'edit-profile',
-			'condition' => isLoggedIn(),
-			'inMenu'    => false,
-		],
-		'delete-message' => [
-			'name'      => 'delete-message',
-			'condition' => isLoggedIn(),
-			'inMenu'    => false,
+		'delete' => [
+			'name'      => 'delete',
+			'condition' => isLoggedIn()
 		]
 	]);

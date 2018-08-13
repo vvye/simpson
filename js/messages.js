@@ -10,7 +10,7 @@ const replyToggleButtons = document.querySelectorAll('.reply-toggle');
 writeMessageButton.onclick = function () {
     if (messageForm.style.display === 'none') {
         messageForm.style.display = 'block';
-        this.innerHTML = 'Hide editor';
+        this.innerHTML = 'Hide message-form';
         this.classList.remove('primary');
         postMessageButton.classList.add('primary');
         successAlert.parentNode.removeChild(successAlert);
@@ -39,7 +39,7 @@ for (let button of replyButtons) {
         }
         if (replyForm.style.display === 'none') {
             replyForm.style.display = 'block';
-            this.innerHTML = 'Hide editor';
+            this.innerHTML = 'Hide message-form';
         } else {
             replyForm.style.display = 'none';
             this.innerHTML = 'Reply';

@@ -99,7 +99,7 @@
 			if ($i <= $range + 1 || $i >= $numPages - $range || ($page - $range <= $i && $page + $range >= $i))
 			{
 				$selected = ($i === $page) ? ' class="selected"' : '';
-				echo '<li' . $selected . '><a href="' . $link . '/' . $i . '">' . $i . '</a></li>';
+				echo '<li' . $selected . '><a href="' . $link . '&page=' . $i . '">' . $i . '</a></li>';
 				$elision = false;
 			}
 			else if (!$elision)

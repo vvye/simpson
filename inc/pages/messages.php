@@ -112,4 +112,4 @@
 		'token'          => getCsrfToken(),
 	]);
 
-	renderPagination(BASE_PATH . '/messages', $page, $numPages);
+	renderPagination(BASE_PATH . '/?p=messages', $page, $numPages);

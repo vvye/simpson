@@ -11,23 +11,16 @@
 
 	do
 	{
-		if ($currentSubpageName === DEFAULT_SUBPAGE_NAME || !is_numeric($currentSubpageName))
+		if (!isset($_GET['user']) || !is_int($_GET['user'] * 1))
 		{
 			$userId = $_SESSION['userId'];
 			$isOwnProfile = true;
 		}
 		else
 		{
-			$userId = (int)$currentSubpageName;
+			$userId = $_GET['user'] * 1;
 			$isOwnProfile = false;
 		}
-
-		if (!isset($_GET['token']) || !isCsrfTokenCorrect($_GET['token']))
-		{
-			renderErrorAlert(MSG_BAD_TOKEN);
-			break;
-		}
-		$token = $_GET['token'];
 
 		$user = getUser($userId);
 
@@ -53,6 +46,12 @@
 			$bio = trim(getFieldValue('bio'));
 
 			$error = false;
+
+			if (!isCsrfTokenCorrect(getFieldValue('token')))
+			{
+				renderErrorAlert(MSG_BAD_TOKEN);
+				$error = true;
+			}
 
 			if ($email === '')
 			{
@@ -151,7 +150,6 @@
 		}
 
 		renderTemplate('edit-profile', [
-			'action'             => BASE_PATH . '/edit-profile' . ($isOwnProfile ? '' : ('/' . $userId)) . '?token=' . getCsrfToken(),
 			'isOwnProfile'       => $isOwnProfile,
 			'userId'             => $userId,
 			'firstName'          => $firstName,
@@ -163,6 +161,6 @@
 			'newPassword'        => $newPassword,
 			'newPasswordConfirm' => $newPasswordConfirm,
 			'bio'                => $bio,
-			'token'              => $token
+			'token'              => getCsrfToken()
 		]);
 	} while (false);

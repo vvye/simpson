@@ -16,7 +16,6 @@
 	require_once __DIR__ . '/inc/config/strings.php';
 
 	$currentPage = getCurrentPage();
-	$currentSubpageName = getCurrentSubpageName();
 
 	$database = getDatabase();
 
@@ -27,7 +26,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>simpson</title>
+		<title><?= SITE_NAME ?></title>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,700" />
 		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/main.css" />
 		<link rel="stylesheet" type="text/css" href="<?= BASE_PATH ?>/css/user.css" />

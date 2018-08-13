@@ -2,7 +2,7 @@
 
 	<?php if ($success): ?>
 		<div class="alert success"><?= MSG_MESSAGE_DELETE_SUCCESS ?></div>
-		<a class="button" href="<?= BASE_PATH ?>/messages">Back</a>
+		<a class="button" href="<?= BASE_PATH ?>/?p=messages">Back</a>
 	<?php elseif ($error): ?>
 		<div class="alert error"><?= MSG_MESSAGE_DELETE_FAILURE ?></div>
 	<?php else: ?>
@@ -38,10 +38,10 @@
 			<div class="clearfix"></div>
 		</div>
 
-		<form action="<?= BASE_PATH ?>/delete-message/<?= $message['id'] ?>" method="post">
+		<form action="<?= BASE_PATH ?>/?p=delete&message=<?= $message['id'] ?>" method="post">
 			<input type="hidden" name="token" value="<?= $token ?>" />
 			<input type="submit" class="button" name="submit" value="Delete" />
-			<a class="primary button" href="<?= BASE_PATH ?>/messages">Cancel</a>
+			<a class="primary button" href="<?= BASE_PATH ?>/?p=messages">Cancel</a>
 		</form>
 
 	<?php endif ?>

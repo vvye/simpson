@@ -4,18 +4,16 @@
 	require_once __DIR__ . '/../functions/users.php';
 
 
-	global $currentSubpageName;
-
 	do
 	{
-		if ($currentSubpageName === DEFAULT_SUBPAGE_NAME || !is_numeric($currentSubpageName))
+		if (!isset($_GET['user']) || !is_int($_GET['user'] * 1))
 		{
 			$userId = $_SESSION['userId'];
 			$isOwnProfile = true;
 		}
 		else
 		{
-			$userId = (int)$currentSubpageName;
+			$userId = $_GET['user'] * 1;
 			$isOwnProfile = $userId === $_SESSION['userId'];
 		}
 
@@ -36,8 +34,7 @@
 			'bio'              => nl2br($user['bio']),
 			'hasAvatar'        => hasAvatar($userId),
 			'registrationTime' => $user['registration_time'],
-			'lastActivityTime' => $user['last_activity_time'],
-			'token'            => getCsrfToken()
+			'lastActivityTime' => $user['last_activity_time']
 		]);
 
 	} while (false);

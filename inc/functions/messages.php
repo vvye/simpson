@@ -167,9 +167,11 @@
 	{
 		global $database;
 
-		return $database->update('messages', [
-				'deleted' => 1
-			], [
-				'id' => $id
-			])->rowCount() === 1;
+		$rowCount = $database->update('messages', [
+			'deleted' => 1
+		], [
+			'id' => $id
+		])->rowCount();
+
+		return $rowCount === 1;
 	}

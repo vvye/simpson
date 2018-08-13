@@ -24,6 +24,6 @@
 </div>
 
 <?php if ($isOwnProfile): ?>
-	<a class="button" href="<?= BASE_PATH ?>/edit-profile?token=<?= $token ?>">Edit profile</a>
+	<a class="button" href="<?= BASE_PATH ?>/?p=edit-profile">Edit profile</a>
 <?php endif ?>
 

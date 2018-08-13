@@ -11,12 +11,6 @@
 	}
 
 
-	function getCurrentSubpageName()
-	{
-		return $_GET['s'] ?? DEFAULT_SUBPAGE_NAME;
-	}
-
-
 	function renderCurrentPage()
 	{
 		global $currentPage;

@@ -3,17 +3,15 @@
 	require_once __DIR__ . '/../functions/form.php';
 	require_once __DIR__ . '/../functions/messages.php';
 
-	global $currentSubpageName;
-
 
 	do
 	{
-		if (!is_numeric($currentSubpageName) || !is_int($currentSubpageName * 1))
+		if (!isset($_GET['message']) || !is_int($_GET['message'] * 1))
 		{
 			renderErrorAlert(MSG_MESSAGE_DOESNT_EXIST);
 			break;
 		}
-		$messageId = $currentSubpageName * 1;
+		$messageId = $_GET['message'] * 1;
 
 		$message = getMessage($messageId);
 
@@ -48,7 +46,7 @@
 			}
 		}
 
-		renderTemplate('delete-message', [
+		renderTemplate('delete', [
 			'message' => $message,
 			'success' => $success,
 			'error'   => $error,
