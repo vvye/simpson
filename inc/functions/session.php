@@ -11,7 +11,8 @@
 			'id',
 			'first_name',
 			'last_name',
-			'password'
+			'password',
+			'last_activity_time'
 		], [
 			'email' => $givenEmail
 		]);
@@ -30,6 +31,7 @@
 		$_SESSION['firstName'] = $user['first_name'];
 		$_SESSION['lastName'] = $user['last_name'];
 		$_SESSION['loggedIn'] = true;
+		$_SESSION['lastActivityTime'] = $user['last_activity_time'];
 
 		$_SESSION['csrfToken'] = renewCsrfToken();
 
@@ -122,8 +124,12 @@
 			return;
 		}
 
+		$now = time();
+
+		$_SESSION['lastActivityTime'] = $now;
+
 		$database->update('users', [
-			'last_activity_time' => time()
+			'last_activity_time' => $now
 		], [
 			'id' => $_SESSION['userId']
 		]);

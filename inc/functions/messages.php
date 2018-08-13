@@ -10,12 +10,12 @@
 	{
 		global $database;
 
-		return $database->count('messages', 'id', [
+		return (int)($database->count('messages', 'id', [
 			'AND' => [
 				'parent'  => null,
 				'deleted' => 0
 			]
-		]);
+		]));
 	}
 
 
@@ -174,4 +174,60 @@
 		])->rowCount();
 
 		return $rowCount === 1;
+	}
+
+
+	function getNumNewMessages()
+	{
+		global $database;
+
+		return (int)($database->count('messages', 'id', [
+			'AND' => [
+				'parent'       => null,
+				'post_time[>]' => $_SESSION['lastActivityTime']
+			]
+		]));
+	}
+
+
+	function getNumNewReplies()
+	{
+		global $database;
+
+		return (int)($database->count('messages', [
+			'[>]messages(parents)' => ['parent' => 'id']
+		], 'messages.id', [
+			'AND' => [
+				'parents.post_time[>]'  => $_SESSION['lastActivityTime'],
+				'messages.post_time[>]' => $_SESSION['lastActivityTime']
+			]
+		]));
+	}
+
+
+	function getNumNewAddressings()
+	{
+		global $database;
+
+		return (int)($database->count('messages', 'id', [
+			'AND' => [
+				'addressee'    => $_SESSION['userId'],
+				'post_time[>]' => $_SESSION['lastActivityTime']
+			]
+		]));
+	}
+
+
+	function getNumNewRepliesToUser()
+	{
+		global $database;
+
+		return (int)($database->count('messages', [
+			'[>]messages(parents)' => ['parent' => 'id']
+		], 'messages.id', [
+			'AND' => [
+				'parents.user'          => $_SESSION['userId'],
+				'messages.post_time[>]' => $_SESSION['lastActivityTime']
+			]
+		]));
 	}

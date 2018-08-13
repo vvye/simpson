@@ -106,11 +106,11 @@ p {
     width: 50%;
 }
 
-.column:first-child .content {
+.column:first-child .column-content {
     padding-right: 1rem;
 }
 
-.column:last-child .content {
+.column:last-child .column-content {
     padding-left: 1rem;
 }
 
@@ -138,10 +138,25 @@ p {
     color: #4a2;
 }
 
-.register h3 {
+.home-panel h3 {
     font-size: 1.8rem;
     text-align: center;
     font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.home-panel .content {
+    padding-left: 6rem;
+}
+
+.home-panel ul {
+    margin-left: 1rem;
+}
+
+.home-panel .avatar.centered {
+    float: none;
+    display: block;
+    margin: 1rem auto 0;
 }
 
 footer {

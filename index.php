@@ -19,8 +19,6 @@
 
 	$database = getDatabase();
 
-	updateLastActivityTime();
-
 ?><!doctype html>
 <html lang="en">
 	<head>
@@ -37,17 +35,14 @@
 
 		<header>
 			<?php
-
 				renderMenu();
-
 			?>
 		</header>
 
 		<div class="main">
 			<?php
-
 				renderCurrentPage();
-
+				updateLastActivityTime();
 			?>
 		</div>
 
@@ -60,4 +55,5 @@
 		<script type="text/javascript" src="<?= BASE_PATH ?>/js/main.js"></script>
 
 	</body>
+
 </html>
