@@ -82,9 +82,9 @@
 			'last_name'
 		]);
 
-		$users = array_filter($users, function ($user) use ($name) {
+		$users = array_values(array_filter($users, function ($user) use ($name) {
 			return $user['first_name'] . ' ' . $user['last_name'] === $name;
-		});
+		}));
 
 		if (empty($users))
 		{
