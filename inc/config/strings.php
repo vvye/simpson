@@ -10,10 +10,10 @@
 		'That password is too short (must be at least ' . MIN_PASSWORD_LENGTH . ' characters).');
 
 	define('MSG_INVALID_FIRST_NAME',
-		'That first name is invalid (must be 3-30 characters and contain only letters, numbers, spaces, - and _).');
+		'That first name is invalid (must be 3-30 characters.');
 
 	define('MSG_INVALID_LAST_NAME',
-		'That last name is invalid (must be 3-30 characters and contain only letters, numbers, spaces, - and _).');
+		'That last name is invalid (must be 3-30 characters.');
 
 	define('MSG_EMAIL_MISSING',
 		'Enter an e-mail address.');
